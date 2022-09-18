@@ -1,0 +1,28 @@
+out: out_rn6
+
+project_name: full_cocaine_dataset_with_naive_rn6
+
+# without naive
+samples: [Rat_Amygdala_cocaine_high,
+Rat_Amygdala__cocaine_low,
+FTL_452_M1071_933000320186811, #cocaine high
+FTL_453_M964_933000320047166, #cocaine low
+FTL_457_M1172_933000320187092, # cocaine high
+FTL_460_M975_933000320047019, #cocaine high
+FTL_461_M768_933000320046611, #cocaine low
+FTL_462_M779_933000320045785, #cocaine low
+# FTL_463_M757_933000320046135, # cocaine low
+FTL_454_M1182_933000320187130, #naive
+FTL_455_M1085_933000320047651, #naive
+FTL_456_M985_933000320047161, #naive
+FTL_464_M986_933000320047174] #naive
+# 13 total
+
+samples_ref: data/all_cocaine_amygdala.txt
+
+macs2_opts: "--nomodel --shift -100 --ext 200 --qval 5e-2 -B --SPMR"
+
+integration_vars: "sample library"
+
+# for label transfer 
+rna_ref: /iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/rpca/out/subset/integrated_relabeled_inhneuron_subtypes.rds

@@ -1,0 +1,13 @@
+Astrocytes
+Cck+-Vip+
+Chat+
+Endothelial
+ExNeuron
+InhNeuron
+Microglia
+Nos1+
+Oligodendrocytes
+OPC
+Pvalb+
+Reln+
+Sst+

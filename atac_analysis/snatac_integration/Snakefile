@@ -1,0 +1,233 @@
+configfile: "config.yml"
+
+
+sample_info = {}
+with open(config['samples_ref']) as fh:
+	for line in fh:
+		l = line.strip().split("\t")
+		sample_info[l[0]] = {'rfid': l[1], 'condition': l[2], 'library': l[3]}
+
+rule all:
+	input:
+		# output of peak calling steps
+		expand("data/peaks/{sample}", sample = config['samples']),
+		expand("data/peaks/{sample}/{sample}_{output}",
+			sample = config['samples'],
+			output = ['control_lambda.bdg','peaks.narrowPeak','peaks.xls','summits.bed','treat_pileup.bdg']),
+		# output of merging peaks across samples
+		# "tmp/" + config['project_name'] + "_allpeaks.bed",
+		# "tmp/" + config['project_name']  +"_allpeaks_sorted.bed",
+		config['out'] + "/" + config['project_name'] + "_combined_peaks.bed",
+		# analyze samples as individuals
+		expand(config['out'] + "/new_mtx/{sample}.h5",
+			sample = config['samples']),
+		expand(config['out'] + "/qcplots/{sample}_qc.png",
+			sample = config['samples']),
+		expand(config['out'] + "/umap/{sample}_umap.png",
+			sample = config['samples']),
+		expand("data/rds/{sample}_peaks.rds",
+			sample = config['samples']),
+		# combined analysis
+		expand(config['out'] + "/combined_peak_mtx/"+ config['project_name'] + "/{sample}.h5",
+			sample = config['samples']),
+		expand(config['out'] + "/umap/" + config['project_name'] + "/{sample}_combined_umap.png",
+			sample = config['samples']),
+		expand("data/rds/" + config['project_name']+ "/{sample}_combined_peaks.rds",
+			sample = config['samples']),
+		"data/rds/" + config['project_name']+ "/merged_unintegrated.rds",
+		"data/rds/" + config['project_name']+ "/harmony_integrated.rds",
+		config['out'] + "/umap/" + config['project_name']+ "/harmony_umap.png",
+		config['out'] + "/umap/" + config['project_name'] + "/conditions_umap.png",
+		config['out'] + "/umap/" + config['project_name'] + "/samples_umap.png",
+		# output of gene activity
+		"data/rds/" + config['project_name'] + "/harmony_with_gene_activity.rds",
+		"data/rds/" + config['project_name'] + "/rna_for_label_transfer.rds",
+		config['out'] + "/" + config['project_name'] + "_report.txt",
+		# output of label transfer
+		"data/rds/" + config['project_name'] + "/harmony_with_predicted_id.rds"
+
+rule callpeaks:
+	"""
+	call peaks with MACS2 on position sorted BAM file (cellranger-atac output)
+	"""
+	input: "data/realigned_outputs/{sample}/outs/possorted_bam.bam"
+	output: 
+		outdir = directory("data/peaks/{sample}"),
+		ctrl_lmb = "data/peaks/{sample}/{sample}_control_lambda.bdg",
+		narrowPeak = "data/peaks/{sample}/{sample}_peaks.narrowPeak",
+		xls = "data/peaks/{sample}/{sample}_peaks.xls",
+		summits = "data/peaks/{sample}/{sample}_summits.bed",
+		pileup = "data/peaks/{sample}/{sample}_treat_pileup.bdg",
+	params: config['macs2_opts']
+	conda: "env.yml"
+	shell:
+		"macs2 callpeak -t {input} -f BAM -n {wildcards.sample} --outdir {output.outdir} {params}"
+
+rule merge_peaks:
+	"""
+	get combined peak set across all samples
+	"""
+	input: expand(rules.callpeaks.output.narrowPeak, sample = config['samples'])
+	output: 
+		combined_peaks = config['out'] + "/" + config['project_name'] + "_combined_peaks.bed",
+		allpeaks = temp("tmp/" + config['project_name'] + "_allpeaks.bed"),
+		sorted_peaks = temp("tmp/" + config['project_name'] + "_allpeaks_sorted.bed")
+	conda: "env.yml"
+	shell:
+		"""
+		cat {input} > {output.allpeaks} && \
+		sort -k1,1 -k2,2n {output.allpeaks} > {output.sorted_peaks} &&
+		bedtools merge -i {output.sorted_peaks} > {output.combined_peaks}
+		"""
+
+rule make_peak_bc_matrix:
+	"""
+	make new peak barcode matrix from MACS2 peaks 
+	"""
+	input: 
+		peaks = rules.callpeaks.output.narrowPeak,
+		frags = "data/realigned_outputs/{sample}/outs/fragments.tsv.gz",
+		bcs = "data/realigned_outputs/{sample}/outs/filtered_peak_bc_matrix/barcodes.tsv"
+	output: config['out'] + "/new_mtx/{sample}.h5"
+	conda: "env.yml"
+	shell:
+		"""
+		Rscript scripts/make_peak_bc_matrix.R --fragments {input.frags} --peaks {input.peaks} \
+		--barcodes {input.bcs} --out {output} --ucsc
+		"""
+
+rule make_combined_peak_matrix:
+	"""
+	make new peak barcode matrix from combined peaks across all samples
+	"""
+	input: 
+		peaks = rules.merge_peaks.output.combined_peaks,
+		frags = "data/realigned_outputs/{sample}/outs/fragments.tsv.gz",
+		bcs = "data/realigned_outputs/{sample}/outs/filtered_peak_bc_matrix/barcodes.tsv",
+	output: config['out'] + "/combined_peak_mtx/" + config['project_name']+ "/{sample}.h5"
+	conda: "env.yml"
+	shell:
+		"""
+		Rscript scripts/make_peak_bc_matrix.R --fragments {input.frags} --peaks {input.peaks} \
+		--barcodes {input.bcs} --out {output} --ucsc
+		"""
+
+rule preprocess:
+	"""
+	load peak-barcode matrices from MACS2 peaks into Seurat and preprocess 
+	"""
+	input: 
+		mtx = rules.make_peak_bc_matrix.output[0],
+		metadata = "data/realigned_outputs/{sample}/outs/singlecell.csv",
+		fragments = "data/realigned_outputs/{sample}/outs/fragments.tsv.gz",
+	output:
+		vln = config['out'] + "/qcplots/{sample}_qc.png",
+		umap = config['out'] + "/umap/{sample}_umap.png",
+		rds = "data/rds/{sample}_peaks.rds"
+	params: 
+		condition = lambda wildcards: sample_info[wildcards.sample]['condition'],
+		library = lambda wildcards: sample_info[wildcards.sample]['library']
+	conda: "env.yml"
+	shell:
+		"""
+		Rscript scripts/preprocess_signac.R --mtx {input.mtx} \
+		--metadata {input.metadata} --fragments {input.fragments} \
+		--vlnplt {output.vln} --rds {output.rds} --umap {output.umap} \
+		--sample {wildcards.sample} --condition {params.condition} --library {params.library}
+		"""
+
+rule preprocess_combined:
+	"""
+	load peak-barcode matrices from combined peaks into Seurat and preprocess 
+	"""
+	input: 
+		mtx = rules.make_combined_peak_matrix.output[0],
+		metadata = "data/realigned_outputs/{sample}/outs/singlecell.csv",
+		fragments = "data/realigned_outputs/{sample}/outs/fragments.tsv.gz",
+	output:
+		umap = config['out'] + "/umap/" + config['project_name']+ "/{sample}_combined_umap.png",
+		rds = "data/rds/" + config['project_name']+ "/{sample}_combined_peaks.rds"
+	params: 
+		condition = lambda wildcards: sample_info[wildcards.sample]['condition'],
+		library = lambda wildcards: sample_info[wildcards.sample]['library']
+	conda: "env.yml"
+	shell:
+		"""
+		Rscript scripts/preprocess_signac.R --mtx {input.mtx} \
+		--metadata {input.metadata} --fragments {input.fragments} \
+		--rds {output.rds} --umap {output.umap} \
+		--sample {wildcards.sample} --condition {params.condition} --library {params.library}
+		"""
+
+rule integrate:
+	"""
+	integrate datasets with Harmony
+	"""
+	input: expand(rules.preprocess_combined.output.rds, sample = config['samples'])
+	output:
+		rds = "data/rds/" + config['project_name']+ "/harmony_integrated.rds",
+		unintegrated = "data/rds/" + config['project_name']+ "/merged_unintegrated.rds",
+		harmony_umap = config['out'] + "/umap/" + config['project_name']+ "/harmony_umap.png",
+		conditions_umap = config['out'] + "/umap/" + config['project_name'] + "/conditions_umap.png",
+		samples_umap = config['out'] + "/umap/" + config['project_name'] + "/samples_umap.png"
+	params: config['integration_vars']
+	conda: "env.yml"
+	shell:
+		"""
+		Rscript scripts/harmony_integration.R --rds {input} \
+		--merged_out {output.unintegrated} \
+		--out {output.rds} --umap {output.harmony_umap} \
+		--conditions_umap {output.conditions_umap} \
+		--samples_umap {output.samples_umap} \
+		--vars {params}
+		"""
+
+rule gene_activity:
+	"""
+	compute gene activity 
+	"""
+	input: rules.integrate.output.rds
+	output: "data/rds/" + config['project_name'] + "/harmony_with_gene_activity.rds"
+	conda: "env.yml"
+	shell:
+		"""
+		Rscript scripts/create_gene_activity_mtx.R \
+		--rds {input} --out {output}
+		"""
+
+rule prep_rna:
+	"""
+	prep scRNA-seq for label transfer
+	"""
+	input: config['rna_ref']
+	output: "data/rds/" + config['project_name'] + "/rna_for_label_transfer.rds"
+	conda: "env.yml"
+	shell:
+		"""
+		Rscript scripts/prep_rna_for_label_transfer.R --rna {input} --out {output}
+		"""
+
+rule label_transfer:
+	"""
+	get predicted cell type IDs by label transfer from snRNA-seq
+	"""
+	input: 
+		atac = rules.gene_activity.output[0],
+		rna = rules.prep_rna.output[0]
+	output: "data/rds/" + config['project_name'] + "/harmony_with_predicted_id.rds"
+	conda: "env.yml"
+	shell:
+		"""
+		Rscript scripts/label_transfer_integrated.R --atac {input.atac} --rna {input.rna} \
+		--out {output}
+		"""
+
+rule make_report:
+	"""
+	record options used for this analysis
+	"""
+	output: config['out'] + "/" + config['project_name'] + "_report.txt"
+	shell:
+		"""
+		date | cat - config.yml > {output}
+		"""

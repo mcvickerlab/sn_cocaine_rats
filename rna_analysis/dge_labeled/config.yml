@@ -1,0 +1,26 @@
+# path to outputs folder - suggest to name after project
+proj_out: out
+# dge_out: out/subset
+dge_out: /iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/dge_labeled/out/dge-with-batch-percent-sample-covars
+
+celltypes: celltypes_list.txt
+
+# path to labeled rds object
+# input: ../rpca/out/subset/integrated_binarized_covars.rds
+# input: ../rpca/out/subset/integrated_binarized_covars_generalized_neurons.rds
+input: ../rpca/out/subset/integrated_relabeled_inhneuron_subtypes_with_batch.rds
+
+# test
+test: MAST
+# covars: [percent.mt, batch.code]
+prefilter: False
+
+#analyses: [high_vs_low, naive_vs_cocaine, naive_vs_low, naive_vs_high]
+analyses: [high_vs_low]
+
+params:
+    high_vs_low: "--covars percent.mt batch.code sample --name high_vs_low --groupby label --ident1 cocaine_high --ident2 cocaine_low"
+    naive_vs_cocaine: "--covars percent.mt batch.code  cocaine.low cocaine.high --name naive_vs_cocaine --groupby label --ident1 naive"
+    naive_vs_low: "--covars percent.mt batch.code  --name naive_vs_low --groupby label --ident1 naive --ident2 cocaine_low"
+    naive_vs_high: "--covars percent.mt batch.code  --name naive_vs_high --groupby label --ident1 naive --ident2 cocaine_high"
+

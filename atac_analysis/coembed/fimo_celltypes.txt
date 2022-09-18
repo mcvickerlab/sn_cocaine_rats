@@ -1,0 +1,10 @@
+Astrocytes
+Cck+-Vip+
+ExNeuron
+InhNeuron
+Microglia
+Nos1+
+Oligodendrocytes
+OPC
+Reln+
+Sst+

@@ -1,0 +1,31 @@
+out: out
+name: full_cocaine_dataset_with_naive_rn6_with_sample_covar
+
+analyses: [high_vs_low]
+
+robj: data/rds/full_cocaine_dataset_with_naive_rn6/harmony_with_predicted_id.rds
+
+celltypes: data/rds/full_cocaine_dataset_with_naive_rn6/celltypes_list.txt
+# celltypes: [Astrocytes,
+# ExNeuron,
+# InhNeuron,
+# Microglia,
+# Oligodendrocytes,
+# OPC,
+# Sst+]
+
+prefilter: False
+logfc_threshold: 0.1
+min_pct: 0.05
+test: "negbinom"
+covars: [library, sample, peak_region_fragments]
+
+params:
+  high_vs_low: "--name high_vs_low --groupby condition --ident1 cocaine.high --ident2 cocaine.low"
+
+fasta: /iblm/netapp/data1/jezhou/cellranger/rn6-2014-build/Rattus_norvegicus.Rnor_6.0.dna.toplevel.fa.modified
+chrom_sizes: /iblm/netapp/data1/external/UCSC/rn6/rn6.chrom.sizes
+
+motifs: /iblm/netapp/data1/external/JASPAR2020/JASPAR2020_CORE_non-redundant_pfms_meme.txt
+
+bg: differential

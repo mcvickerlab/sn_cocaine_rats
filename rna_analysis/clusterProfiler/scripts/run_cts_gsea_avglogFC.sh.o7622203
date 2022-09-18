@@ -1,0 +1,577 @@
+running GSEA on Astrocytes
+$celltype
+[1] "Astrocytes"
+
+$cutoff
+[1] 1
+
+$go
+[1] TRUE
+
+$kegg
+[1] TRUE
+
+$markers
+[1] "/iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/dge_labeled/out/relabeled_subtypes3/high_vs_low/Astrocytes_high_vs_low.csv"
+
+$outdir
+[1] "/iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/clusterProfiler/relabeled_subtypes3/high_vs_low/gsea_avg_logFC/results"
+
+$padjust
+[1] "fdr"
+
+$zscore
+[1] FALSE
+
+[1] "markers"
+    gene        p_val avg_log2FC pct.1 pct.2    p_val_adj   celltype
+1   Pld5 7.125690e-91  0.4001997 0.212 0.129 1.232531e-86 Astrocytes
+2 Zbtb16 1.431068e-27  0.4513944 0.285 0.200 2.475318e-23 Astrocytes
+3 Rabep1 8.547470e-20 -0.2401217 0.509 0.593 1.478456e-15 Astrocytes
+4  Mtss2 6.151749e-18 -0.1587636 0.299 0.353 1.064068e-13 Astrocytes
+5   Etv4 6.882978e-17 -0.2437284 0.073 0.111 1.190549e-12 Astrocytes
+6  Micu1 7.191076e-17  0.3478844 0.350 0.267 1.243840e-12 Astrocytes
+         q_val
+1 1.232531e-86
+2 1.237659e-23
+3 4.928186e-16
+4 2.660170e-14
+5 2.073067e-13
+6 2.073067e-13
+[1] "running GSEA for GO:BP"
+saving gobp results to /iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/clusterProfiler/relabeled_subtypes3/high_vs_low/gsea_avg_logFC/results/Astrocytes_gobp.rds
+saving gobp table to /iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/clusterProfiler/relabeled_subtypes3/high_vs_low/gsea_avg_logFC/results/Astrocytes_gobp.txt
+[1] "running GSEA for KEGG"
+saving kegg results to /iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/clusterProfiler/relabeled_subtypes3/high_vs_low/gsea_avg_logFC/results/Astrocytes_kegg.rds
+saving kegg table to /iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/clusterProfiler/relabeled_subtypes3/high_vs_low/gsea_avg_logFC/results/Astrocytes_kegg.txt
+running GSEA on Cck+-Vip+
+$celltype
+[1] "Cck+-Vip+"
+
+$cutoff
+[1] 1
+
+$go
+[1] TRUE
+
+$kegg
+[1] TRUE
+
+$markers
+[1] "/iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/dge_labeled/out/relabeled_subtypes3/high_vs_low/Cck+-Vip+_high_vs_low.csv"
+
+$outdir
+[1] "/iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/clusterProfiler/relabeled_subtypes3/high_vs_low/gsea_avg_logFC/results"
+
+$padjust
+[1] "fdr"
+
+$zscore
+[1] FALSE
+
+[1] "markers"
+            gene        p_val avg_log2FC pct.1 pct.2    p_val_adj  celltype
+1         Snhg11 1.155105e-16 -0.2247710 0.997 0.998 1.997986e-12 Cck+/Vip+
+2 AABR07054400.1 6.240261e-11  0.4142103 0.440 0.316 1.079378e-06 Cck+/Vip+
+3         Prpf4b 1.795964e-10  0.2442807 0.927 0.900 3.106479e-06 Cck+/Vip+
+4 AABR07066379.1 7.797256e-09  0.2895932 0.909 0.900 1.348691e-04 Cck+/Vip+
+5         Mt-nd2 1.201802e-08 -0.5417484 0.489 0.688 2.078757e-04 Cck+/Vip+
+6          Morc1 2.412706e-08  0.2109380 0.093 0.047 4.173258e-04 Cck+/Vip+
+         q_val
+1 1.997986e-12
+2 5.396890e-07
+3 1.035493e-06
+4 3.371728e-05
+5 4.157514e-05
+6 6.955430e-05
+[1] "running GSEA for GO:BP"
+saving gobp results to /iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/clusterProfiler/relabeled_subtypes3/high_vs_low/gsea_avg_logFC/results/Cck+-Vip+_gobp.rds
+saving gobp table to /iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/clusterProfiler/relabeled_subtypes3/high_vs_low/gsea_avg_logFC/results/Cck+-Vip+_gobp.txt
+[1] "running GSEA for KEGG"
+saving kegg results to /iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/clusterProfiler/relabeled_subtypes3/high_vs_low/gsea_avg_logFC/results/Cck+-Vip+_kegg.rds
+saving kegg table to /iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/clusterProfiler/relabeled_subtypes3/high_vs_low/gsea_avg_logFC/results/Cck+-Vip+_kegg.txt
+running GSEA on Chat+
+$celltype
+[1] "Chat+"
+
+$cutoff
+[1] 1
+
+$go
+[1] TRUE
+
+$kegg
+[1] TRUE
+
+$markers
+[1] "/iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/dge_labeled/out/relabeled_subtypes3/high_vs_low/Chat+_high_vs_low.csv"
+
+$outdir
+[1] "/iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/clusterProfiler/relabeled_subtypes3/high_vs_low/gsea_avg_logFC/results"
+
+$padjust
+[1] "fdr"
+
+$zscore
+[1] FALSE
+
+[1] "markers"
+          gene        p_val  avg_log2FC pct.1 pct.2 p_val_adj celltype
+1         Pcp4 7.161008e-06  0.31160372 0.456 0.328 0.1238640    Chat+
+2       Snhg11 5.036609e-05 -0.15221635 1.000 1.000 0.8711822    Chat+
+3         Grb2 7.252091e-05  0.12242788 0.630 0.525 1.0000000    Chat+
+4        Cabp4 7.648788e-05  0.24296364 0.501 0.380 1.0000000    Chat+
+5 LOC102549817 9.985847e-05 -0.03507092 0.182 0.152 1.0000000    Chat+
+6     Rap1gds1 1.217145e-04  0.27436061 0.533 0.412 1.0000000    Chat+
+      q_val
+1 0.1238640
+2 0.3307527
+3 0.3307527
+4 0.3307527
+5 0.3454504
+6 0.3508826
+[1] "running GSEA for GO:BP"
+saving gobp results to /iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/clusterProfiler/relabeled_subtypes3/high_vs_low/gsea_avg_logFC/results/Chat+_gobp.rds
+saving gobp table to /iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/clusterProfiler/relabeled_subtypes3/high_vs_low/gsea_avg_logFC/results/Chat+_gobp.txt
+[1] "running GSEA for KEGG"
+saving kegg results to /iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/clusterProfiler/relabeled_subtypes3/high_vs_low/gsea_avg_logFC/results/Chat+_kegg.rds
+saving kegg table to /iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/clusterProfiler/relabeled_subtypes3/high_vs_low/gsea_avg_logFC/results/Chat+_kegg.txt
+running GSEA on Endothelial
+$celltype
+[1] "Endothelial"
+
+$cutoff
+[1] 1
+
+$go
+[1] TRUE
+
+$kegg
+[1] TRUE
+
+$markers
+[1] "/iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/dge_labeled/out/relabeled_subtypes3/high_vs_low/Endothelial_high_vs_low.csv"
+
+$outdir
+[1] "/iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/clusterProfiler/relabeled_subtypes3/high_vs_low/gsea_avg_logFC/results"
+
+$padjust
+[1] "fdr"
+
+$zscore
+[1] FALSE
+
+[1] "markers"
+       gene        p_val  avg_log2FC pct.1 pct.2 p_val_adj    celltype q_val
+1 Serpinb6b 0.0001487041  0.31968496 0.036 0.000         1 Endothelial     1
+2      Dpp3 0.0001770301 -0.65390657 0.009 0.099         1 Endothelial     1
+3      Cybb 0.0002679985 -0.56420632 0.000 0.033         1 Endothelial     1
+4      Glrx 0.0004842289 -0.54364940 0.005 0.066         1 Endothelial     1
+5     Zwint 0.0005046566 -0.09999138 0.575 0.702         1 Endothelial     1
+6     Foxf1 0.0005792056  0.27638058 0.032 0.000         1 Endothelial     1
+[1] "running GSEA for GO:BP"
+saving gobp results to /iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/clusterProfiler/relabeled_subtypes3/high_vs_low/gsea_avg_logFC/results/Endothelial_gobp.rds
+saving gobp table to /iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/clusterProfiler/relabeled_subtypes3/high_vs_low/gsea_avg_logFC/results/Endothelial_gobp.txt
+[1] "running GSEA for KEGG"
+saving kegg results to /iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/clusterProfiler/relabeled_subtypes3/high_vs_low/gsea_avg_logFC/results/Endothelial_kegg.rds
+saving kegg table to /iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/clusterProfiler/relabeled_subtypes3/high_vs_low/gsea_avg_logFC/results/Endothelial_kegg.txt
+running GSEA on ExNeuron
+$celltype
+[1] "ExNeuron"
+
+$cutoff
+[1] 1
+
+$go
+[1] TRUE
+
+$kegg
+[1] TRUE
+
+$markers
+[1] "/iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/dge_labeled/out/relabeled_subtypes3/high_vs_low/ExNeuron_high_vs_low.csv"
+
+$outdir
+[1] "/iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/clusterProfiler/relabeled_subtypes3/high_vs_low/gsea_avg_logFC/results"
+
+$padjust
+[1] "fdr"
+
+$zscore
+[1] FALSE
+
+[1] "markers"
+            gene        p_val  avg_log2FC pct.1 pct.2    p_val_adj celltype
+1 AABR07054400.1 4.827453e-83  0.20828625 0.457 0.413 8.350045e-79 ExNeuron
+2          Cabp4 5.386548e-78  0.32666635 0.392 0.282 9.317113e-74 ExNeuron
+3          Mrps6 1.542798e-62  0.19398140 0.772 0.737 2.668578e-58 ExNeuron
+4         Snhg11 7.248357e-61 -0.03676423 0.978 0.976 1.253748e-56 ExNeuron
+5         Pdzrn3 1.917704e-56 -0.35864340 0.402 0.488 3.317053e-52 ExNeuron
+6        Il12rb2 1.119550e-50  0.18560563 0.373 0.318 1.936485e-46 ExNeuron
+         q_val
+1 8.350045e-79
+2 4.658556e-74
+3 8.895258e-59
+4 3.134371e-57
+5 6.634106e-53
+6 3.227475e-47
+[1] "running GSEA for GO:BP"
+saving gobp results to /iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/clusterProfiler/relabeled_subtypes3/high_vs_low/gsea_avg_logFC/results/ExNeuron_gobp.rds
+saving gobp table to /iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/clusterProfiler/relabeled_subtypes3/high_vs_low/gsea_avg_logFC/results/ExNeuron_gobp.txt
+[1] "running GSEA for KEGG"
+saving kegg results to /iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/clusterProfiler/relabeled_subtypes3/high_vs_low/gsea_avg_logFC/results/ExNeuron_kegg.rds
+saving kegg table to /iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/clusterProfiler/relabeled_subtypes3/high_vs_low/gsea_avg_logFC/results/ExNeuron_kegg.txt
+running GSEA on InhNeuron
+$celltype
+[1] "InhNeuron"
+
+$cutoff
+[1] 1
+
+$go
+[1] TRUE
+
+$kegg
+[1] TRUE
+
+$markers
+[1] "/iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/dge_labeled/out/relabeled_subtypes3/high_vs_low/InhNeuron_high_vs_low.csv"
+
+$outdir
+[1] "/iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/clusterProfiler/relabeled_subtypes3/high_vs_low/gsea_avg_logFC/results"
+
+$padjust
+[1] "fdr"
+
+$zscore
+[1] FALSE
+
+[1] "markers"
+            gene         p_val  avg_log2FC pct.1 pct.2     p_val_adj  celltype
+1         Snhg11 2.389300e-113 -0.18164420 0.971 0.982 4.132773e-109 InhNeuron
+2 AABR07000398.1  8.549681e-78 -0.09932081 0.997 0.997  1.478838e-73 InhNeuron
+3 AABR07054400.1  5.044920e-59  0.31120352 0.350 0.258  8.726198e-55 InhNeuron
+4         Mt-nd2  1.061077e-54 -0.19205134 0.545 0.640  1.835345e-50 InhNeuron
+5         Mt-co3  1.159935e-44 -0.12530811 0.742 0.821  2.006340e-40 InhNeuron
+6          Calm1  4.223481e-44  0.08577691 0.898 0.894  7.305354e-40 InhNeuron
+          q_val
+1 4.132773e-109
+2  7.394191e-74
+3  2.908733e-55
+4  4.588364e-51
+5  4.012681e-41
+6  1.217559e-40
+[1] "running GSEA for GO:BP"
+saving gobp results to /iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/clusterProfiler/relabeled_subtypes3/high_vs_low/gsea_avg_logFC/results/InhNeuron_gobp.rds
+saving gobp table to /iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/clusterProfiler/relabeled_subtypes3/high_vs_low/gsea_avg_logFC/results/InhNeuron_gobp.txt
+[1] "running GSEA for KEGG"
+saving kegg results to /iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/clusterProfiler/relabeled_subtypes3/high_vs_low/gsea_avg_logFC/results/InhNeuron_kegg.rds
+saving kegg table to /iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/clusterProfiler/relabeled_subtypes3/high_vs_low/gsea_avg_logFC/results/InhNeuron_kegg.txt
+running GSEA on Microglia
+$celltype
+[1] "Microglia"
+
+$cutoff
+[1] 1
+
+$go
+[1] TRUE
+
+$kegg
+[1] TRUE
+
+$markers
+[1] "/iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/dge_labeled/out/relabeled_subtypes3/high_vs_low/Microglia_high_vs_low.csv"
+
+$outdir
+[1] "/iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/clusterProfiler/relabeled_subtypes3/high_vs_low/gsea_avg_logFC/results"
+
+$padjust
+[1] "fdr"
+
+$zscore
+[1] FALSE
+
+[1] "markers"
+       gene        p_val avg_log2FC pct.1 pct.2    p_val_adj  celltype
+1      Ano5 3.224156e-30 -0.7918622 0.008 0.079 5.576822e-26 Microglia
+2     Eef2k 1.021482e-10  0.5953616 0.243 0.152 1.766857e-06 Microglia
+3     Fkbp5 1.771873e-09  0.5259004 0.113 0.058 3.064808e-05 Microglia
+4    Adgrl3 2.503839e-09  0.4881162 0.311 0.205 4.330890e-05 Microglia
+5 LOC685048 4.200646e-08  0.2188198 0.025 0.007 7.265857e-04 Microglia
+6      Apoe 9.672312e-08  0.2540877 0.992 0.986 1.673020e-03 Microglia
+         q_val
+1 5.576822e-26
+2 8.834286e-07
+3 1.021603e-05
+4 1.082722e-05
+5 1.453171e-04
+6 2.788366e-04
+[1] "running GSEA for GO:BP"
+saving gobp results to /iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/clusterProfiler/relabeled_subtypes3/high_vs_low/gsea_avg_logFC/results/Microglia_gobp.rds
+saving gobp table to /iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/clusterProfiler/relabeled_subtypes3/high_vs_low/gsea_avg_logFC/results/Microglia_gobp.txt
+[1] "running GSEA for KEGG"
+saving kegg results to /iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/clusterProfiler/relabeled_subtypes3/high_vs_low/gsea_avg_logFC/results/Microglia_kegg.rds
+saving kegg table to /iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/clusterProfiler/relabeled_subtypes3/high_vs_low/gsea_avg_logFC/results/Microglia_kegg.txt
+running GSEA on Nos1+
+$celltype
+[1] "Nos1+"
+
+$cutoff
+[1] 1
+
+$go
+[1] TRUE
+
+$kegg
+[1] TRUE
+
+$markers
+[1] "/iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/dge_labeled/out/relabeled_subtypes3/high_vs_low/Nos1+_high_vs_low.csv"
+
+$outdir
+[1] "/iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/clusterProfiler/relabeled_subtypes3/high_vs_low/gsea_avg_logFC/results"
+
+$padjust
+[1] "fdr"
+
+$zscore
+[1] FALSE
+
+[1] "markers"
+            gene        p_val  avg_log2FC pct.1 pct.2    p_val_adj celltype
+1         Snhg11 1.291611e-12 -0.20965939 0.992 0.995 2.234100e-08    Nos1+
+2          Calm1 3.323118e-11  0.22937145 0.921 0.903 5.747998e-07    Nos1+
+3 AABR07054400.1 1.537047e-10  0.46531736 0.400 0.278 2.658631e-06    Nos1+
+4 AABR07000398.1 5.253327e-08 -0.09404014 0.997 1.000 9.086679e-04    Nos1+
+5   LOC102556347 1.266120e-07 -0.23864627 0.111 0.189 2.190007e-03    Nos1+
+6         Angel2 9.921614e-07  0.16779061 0.099 0.063 1.716142e-02    Nos1+
+         q_val
+1 2.234100e-08
+2 2.873999e-07
+3 8.862103e-07
+4 2.271670e-04
+5 4.380015e-04
+6 2.860236e-03
+[1] "running GSEA for GO:BP"
+saving gobp results to /iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/clusterProfiler/relabeled_subtypes3/high_vs_low/gsea_avg_logFC/results/Nos1+_gobp.rds
+saving gobp table to /iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/clusterProfiler/relabeled_subtypes3/high_vs_low/gsea_avg_logFC/results/Nos1+_gobp.txt
+[1] "running GSEA for KEGG"
+saving kegg results to /iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/clusterProfiler/relabeled_subtypes3/high_vs_low/gsea_avg_logFC/results/Nos1+_kegg.rds
+saving kegg table to /iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/clusterProfiler/relabeled_subtypes3/high_vs_low/gsea_avg_logFC/results/Nos1+_kegg.txt
+running GSEA on Oligodendrocytes
+$celltype
+[1] "Oligodendrocytes"
+
+$cutoff
+[1] 1
+
+$go
+[1] TRUE
+
+$kegg
+[1] TRUE
+
+$markers
+[1] "/iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/dge_labeled/out/relabeled_subtypes3/high_vs_low/Oligodendrocytes_high_vs_low.csv"
+
+$outdir
+[1] "/iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/clusterProfiler/relabeled_subtypes3/high_vs_low/gsea_avg_logFC/results"
+
+$padjust
+[1] "fdr"
+
+$zscore
+[1] FALSE
+
+[1] "markers"
+            gene        p_val avg_log2FC pct.1 pct.2    p_val_adj
+1         Zbtb16 1.401192e-71  0.6336539 0.249 0.132 2.423642e-67
+2        Phactr3 4.551297e-51  0.3989290 0.244 0.173 7.872378e-47
+3        Cdc37l1 2.402575e-48  0.4299689 0.463 0.365 4.155733e-44
+4           Sgk1 4.458752e-43  0.4380058 0.329 0.252 7.712304e-39
+5           Vbp1 1.142407e-40 -0.2778259 0.271 0.346 1.976021e-36
+6 AABR07053870.1 2.392606e-32 -0.6160701 0.117 0.210 4.138490e-28
+          celltype        q_val
+1 Oligodendrocytes 2.423642e-67
+2 Oligodendrocytes 3.936189e-47
+3 Oligodendrocytes 1.385244e-44
+4 Oligodendrocytes 1.928076e-39
+5 Oligodendrocytes 3.952041e-37
+6 Oligodendrocytes 6.897484e-29
+[1] "running GSEA for GO:BP"
+saving gobp results to /iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/clusterProfiler/relabeled_subtypes3/high_vs_low/gsea_avg_logFC/results/Oligodendrocytes_gobp.rds
+saving gobp table to /iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/clusterProfiler/relabeled_subtypes3/high_vs_low/gsea_avg_logFC/results/Oligodendrocytes_gobp.txt
+[1] "running GSEA for KEGG"
+saving kegg results to /iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/clusterProfiler/relabeled_subtypes3/high_vs_low/gsea_avg_logFC/results/Oligodendrocytes_kegg.rds
+saving kegg table to /iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/clusterProfiler/relabeled_subtypes3/high_vs_low/gsea_avg_logFC/results/Oligodendrocytes_kegg.txt
+running GSEA on OPC
+$celltype
+[1] "OPC"
+
+$cutoff
+[1] 1
+
+$go
+[1] TRUE
+
+$kegg
+[1] TRUE
+
+$markers
+[1] "/iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/dge_labeled/out/relabeled_subtypes3/high_vs_low/OPC_high_vs_low.csv"
+
+$outdir
+[1] "/iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/clusterProfiler/relabeled_subtypes3/high_vs_low/gsea_avg_logFC/results"
+
+$padjust
+[1] "fdr"
+
+$zscore
+[1] FALSE
+
+[1] "markers"
+        gene        p_val avg_log2FC pct.1 pct.2    p_val_adj celltype
+1     Zbtb16 4.270822e-27  0.6241490 0.286 0.168 7.387241e-23      OPC
+2    Sparcl1 1.991591e-26  0.4756512 0.313 0.196 3.444855e-22      OPC
+3       Etv4 4.894092e-15 -0.3649598 0.255 0.345 8.465312e-11      OPC
+4      Ifi27 6.860262e-15 -0.3633287 0.079 0.137 1.186620e-10      OPC
+5 AC134224.3 3.611642e-11 -0.1543875 1.000 1.000 6.247058e-07      OPC
+6      Mtss2 7.646993e-11 -0.2159149 0.357 0.414 1.322700e-06      OPC
+         q_val
+1 7.387241e-23
+2 1.722428e-22
+3 2.821771e-11
+4 2.966549e-11
+5 1.249412e-07
+6 2.204501e-07
+[1] "running GSEA for GO:BP"
+saving gobp results to /iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/clusterProfiler/relabeled_subtypes3/high_vs_low/gsea_avg_logFC/results/OPC_gobp.rds
+saving gobp table to /iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/clusterProfiler/relabeled_subtypes3/high_vs_low/gsea_avg_logFC/results/OPC_gobp.txt
+[1] "running GSEA for KEGG"
+saving kegg results to /iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/clusterProfiler/relabeled_subtypes3/high_vs_low/gsea_avg_logFC/results/OPC_kegg.rds
+saving kegg table to /iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/clusterProfiler/relabeled_subtypes3/high_vs_low/gsea_avg_logFC/results/OPC_kegg.txt
+running GSEA on Pvalb+
+$celltype
+[1] "Pvalb+"
+
+$cutoff
+[1] 1
+
+$go
+[1] TRUE
+
+$kegg
+[1] TRUE
+
+$markers
+[1] "/iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/dge_labeled/out/relabeled_subtypes3/high_vs_low/Pvalb+_high_vs_low.csv"
+
+$outdir
+[1] "/iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/clusterProfiler/relabeled_subtypes3/high_vs_low/gsea_avg_logFC/results"
+
+$padjust
+[1] "fdr"
+
+$zscore
+[1] FALSE
+
+[1] "markers"
+            gene        p_val avg_log2FC pct.1 pct.2 p_val_adj celltype q_val
+1          Paqr4 0.0001205143  0.3627934 0.136 0.013         1   Pvalb+     1
+2 AABR07071659.1 0.0001920312 -0.3019617 0.048 0.166         1   Pvalb+     1
+3        Slc36a4 0.0002381576 -0.1642338 0.000 0.051         1   Pvalb+     1
+4           Sbf1 0.0002641375  0.4672871 0.296 0.153         1   Pvalb+     1
+5          Pias1 0.0003285902 -0.4439840 0.248 0.363         1   Pvalb+     1
+6           Apoo 0.0006267157 -0.1963081 0.192 0.344         1   Pvalb+     1
+[1] "running GSEA for GO:BP"
+saving gobp results to /iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/clusterProfiler/relabeled_subtypes3/high_vs_low/gsea_avg_logFC/results/Pvalb+_gobp.rds
+saving gobp table to /iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/clusterProfiler/relabeled_subtypes3/high_vs_low/gsea_avg_logFC/results/Pvalb+_gobp.txt
+[1] "running GSEA for KEGG"
+saving kegg results to /iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/clusterProfiler/relabeled_subtypes3/high_vs_low/gsea_avg_logFC/results/Pvalb+_kegg.rds
+saving kegg table to /iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/clusterProfiler/relabeled_subtypes3/high_vs_low/gsea_avg_logFC/results/Pvalb+_kegg.txt
+running GSEA on Reln+
+$celltype
+[1] "Reln+"
+
+$cutoff
+[1] 1
+
+$go
+[1] TRUE
+
+$kegg
+[1] TRUE
+
+$markers
+[1] "/iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/dge_labeled/out/relabeled_subtypes3/high_vs_low/Reln+_high_vs_low.csv"
+
+$outdir
+[1] "/iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/clusterProfiler/relabeled_subtypes3/high_vs_low/gsea_avg_logFC/results"
+
+$padjust
+[1] "fdr"
+
+$zscore
+[1] FALSE
+
+[1] "markers"
+     gene        p_val avg_log2FC pct.1 pct.2  p_val_adj celltype      q_val
+1   Neto2 3.653164e-06 -0.4880305 0.273 0.424 0.06318877    Reln+ 0.06318877
+2  Snhg11 7.649162e-05 -0.1280236 0.987 0.994 1.00000000    Reln+ 0.66153781
+3  Faap24 2.521897e-04 -0.1135782 0.000 0.029 1.00000000    Reln+ 1.00000000
+4  U2surp 3.275659e-04 -0.2960718 0.334 0.434 1.00000000    Reln+ 1.00000000
+5  Nexmif 3.383418e-04  0.2713960 0.276 0.174 1.00000000    Reln+ 1.00000000
+6 Slc30a9 5.489730e-04 -0.1574354 0.409 0.508 1.00000000    Reln+ 1.00000000
+[1] "running GSEA for GO:BP"
+saving gobp results to /iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/clusterProfiler/relabeled_subtypes3/high_vs_low/gsea_avg_logFC/results/Reln+_gobp.rds
+saving gobp table to /iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/clusterProfiler/relabeled_subtypes3/high_vs_low/gsea_avg_logFC/results/Reln+_gobp.txt
+[1] "running GSEA for KEGG"
+saving kegg results to /iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/clusterProfiler/relabeled_subtypes3/high_vs_low/gsea_avg_logFC/results/Reln+_kegg.rds
+saving kegg table to /iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/clusterProfiler/relabeled_subtypes3/high_vs_low/gsea_avg_logFC/results/Reln+_kegg.txt
+running GSEA on Sst+
+$celltype
+[1] "Sst+"
+
+$cutoff
+[1] 1
+
+$go
+[1] TRUE
+
+$kegg
+[1] TRUE
+
+$markers
+[1] "/iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/dge_labeled/out/relabeled_subtypes3/high_vs_low/Sst+_high_vs_low.csv"
+
+$outdir
+[1] "/iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/clusterProfiler/relabeled_subtypes3/high_vs_low/gsea_avg_logFC/results"
+
+$padjust
+[1] "fdr"
+
+$zscore
+[1] FALSE
+
+[1] "markers"
+            gene        p_val  avg_log2FC pct.1 pct.2    p_val_adj celltype
+1         Snhg11 7.583940e-20 -0.07848993 0.996 0.996 1.311794e-15     Sst+
+2 AABR07043564.1 4.521537e-12 -0.38539893 0.212 0.312 7.820902e-08     Sst+
+3          Nxpe1 2.884712e-11  0.18214966 0.107 0.072 4.989687e-07     Sst+
+4 AABR07000398.1 1.926960e-10 -0.08498987 0.998 1.000 3.333063e-06     Sst+
+5 AABR07054400.1 6.487286e-10  0.17842224 0.375 0.330 1.122106e-05     Sst+
+6          Cabp4 8.180086e-10  0.26078960 0.323 0.254 1.414910e-05     Sst+
+         q_val
+1 1.311794e-15
+2 3.910451e-08
+3 1.663229e-07
+4 8.332657e-07
+5 2.244212e-06
+6 2.358183e-06
+[1] "running GSEA for GO:BP"
+saving gobp results to /iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/clusterProfiler/relabeled_subtypes3/high_vs_low/gsea_avg_logFC/results/Sst+_gobp.rds
+saving gobp table to /iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/clusterProfiler/relabeled_subtypes3/high_vs_low/gsea_avg_logFC/results/Sst+_gobp.txt
+[1] "running GSEA for KEGG"
+saving kegg results to /iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/clusterProfiler/relabeled_subtypes3/high_vs_low/gsea_avg_logFC/results/Sst+_kegg.rds
+saving kegg table to /iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/clusterProfiler/relabeled_subtypes3/high_vs_low/gsea_avg_logFC/results/Sst+_kegg.txt

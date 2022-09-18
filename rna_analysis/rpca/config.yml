@@ -1,0 +1,89 @@
+# path to outputs folder - suggest to name after project
+rds_out: ../data/snRNA/rds
+subset_out: ../data/snRNA/subset_rds
+# proj_out: out/subset
+proj_out: out/cocaine_only
+
+# names of samples to integrate
+samples: [933000320047328,
+933000120138592,
+# 933000120138586,
+# 933000320046084,
+# 933000320046077,
+933000120138609,
+933000320186802,
+933000320047225,
+933000320046609,
+933000320047001,
+933000320047132,
+# 933000320186801,
+# 933000320046621,
+# 933000320046625,
+933000320047104,
+933000320045674,
+Rat_Opioid_HS_1, 
+Rat_Opioid_HS_2]
+# Rat_Amygdala_787A_all_seq]
+
+# for subsetting data
+subset: True
+
+# for integration
+rpca: True
+# references: [Rat_Opioid_HS_1, Rat_Opioid_HS_2, Rat_Amygdala_787A_all_seq]
+references: [Rat_Opioid_HS_1, Rat_Opioid_HS_2]
+
+# for dge test
+dge: True
+# test: negbinom
+test: MAST
+prefilter: False
+covariates: [percent.mt, sample, label]
+
+# flag for plotting feature plots
+plot: True
+
+# list of cell types
+types: [L1-L2_Astrocyte,
+L1-L6_Astrocyte,
+Astrocyte,
+Endothelial,
+Microglia,
+Ex_Neuron,
+exDG_Neuron,
+Inh_Neuron,
+NRGN_Neuron,
+Neuron,
+Mature_Oligodendrocyte,
+Precursor_Oligodendrocyte,
+Oligodendrocyte,
+Pericyte,
+Opioid_Receptor,
+Nociceptin,
+Nociceptin_Receptor]
+# Epidymal_Cells,
+# Glucocortic oid_Receptor]
+
+# markers for each cell type
+markers:
+  L1-L2_Astrocyte: [Gfap]
+  L1-L6_Astrocyte: [Fgfr3, Slc14a1]
+  Astrocyte: [Aqp4 , Slc1a2, Gfap , Gja1, Rorb]
+  Endothelial: [Cldn5 , Nostrin, Icam2]
+  Microglia: [P2ry12, Prprc , Tyrobp, Cd74 , Aif1 , Ctss]
+  Ex_Neuron: [Slc17a7, Syt1 , Rbfox3 , Cux2 , Satb2, Tle4]
+  exDG_Neuron: [Ppfia2]
+  Inh_Neuron: [Slc32a1, Gad2 , Gad1 , Pvalb , Sst , Vip , Sv2c, Cck, Nos1]
+  NRGN_Neuron: [Nrgn, Thy1]
+  Neuron: [Snap25, Gabrb2]
+  Mature_Oligodendrocyte: [Plp1, Mbp , Cnp]
+  Precursor_Oligodendrocyte: [Pdgfra, Olig1 , Olig3 , Olig2]
+  Oligodendrocyte: [Opalin]
+  Pericyte: [Pdgfrb, Notch3]
+  Opioid_Receptor: [Oprm1]
+  Nociceptin: [Pnoc]
+  Nociceptin_Receptor: [Oprl1]
+  Epidymal_Cells: [Foxj1]
+  Glucocorticoid_Receptor: [Nr3c1]
+
+

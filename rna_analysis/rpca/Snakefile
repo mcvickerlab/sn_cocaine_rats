@@ -1,0 +1,160 @@
+configfile: "config.yml"
+
+subworkflow make_seurat:
+	workdir:
+		"../make_seurat"
+	snakefile:
+		"../make_seurat/Snakefile"
+	configfile:
+		"../make_seurat/config.yml"
+
+def run_dge():
+	return True if ('test' in config) else False
+
+integrated = []
+umaps = []
+if config['rpca']:
+	integrated = expand(config['proj_out'] + ("/rpca_integrated.rds"))
+	umaps = expand(config['proj_out'] + "/plots/rpca_{groupby}_umap.png", \
+		groupby = ['clusters','conditions','split'])
+else:
+	integrated = expand(config['proj_out'] + ("/sct_integrated.rds"))
+	umaps = expand(config['proj_out'] + "/plots/sct_{groupby}_umap.png", \
+		groupby = ['clusters','conditions', 'split'])
+feature_plots = expand(config['proj_out'] + "/plots/{plotType}/{celltype}.png", \
+			plotType = ['featurePlots','dotPlots'], celltype = config['types'])
+
+targets = []
+targets.extend(integrated)
+targets.extend(umaps)
+targets.append(config['proj_out'] + "/report.txt")
+
+if config['subset']:
+	targets.append(
+		expand(
+			config['subset_out'] + "/{sample}_sct_normalized.rds",
+			sample = config['samples']
+			)
+		)
+else:
+	targets.append(
+		expand(
+			config['rds_out'] + "/{sample}_sct_normalized.rds",
+			sample = config['samples']
+			)
+		)
+if config['dge']:
+	targets.append(config['proj_out'] + "/cluster_markers.csv")
+if config['plot']:
+	targets.extend(feature_plots)
+
+rule all:
+	input: targets
+
+
+if config['subset']:
+	rule subset_and_norm:
+		"""subset data and normalize with sctransform"""
+		input: 
+			make_seurat("out/{sample}.rds")
+		output: config['subset_out'] + "/{sample}_sct_normalized.rds"
+		conda: "env.yml"
+		shell:
+			"Rscript scripts/subset_and_norm.R --rds {input} "
+			"--subset "
+			"--sctransform --out {output}"
+else:
+	rule subset_and_norm:
+		"""subset data and normalize with sctransform"""
+		input: 
+			make_seurat("out/{sample}.rds")
+		output: config['rds_out'] + "/{sample}_sct_normalized.rds"
+		conda: "env.yml"
+		shell:
+			"Rscript scripts/subset_and_norm.R --rds {input} "
+			"--sctransform --out {output}"
+
+if config['rpca']:
+	rule integrate_and_cluster:
+		"""integrate data from all samples and cluster w/ rpca"""
+		input: expand(rules.subset_and_norm.output[0], sample = config['samples'])
+		output: 
+			rds = config['proj_out'] + "/rpca_integrated.rds",
+			clusters_umap = config['proj_out'] + "/plots/rpca_clusters_umap.png",
+			conditions_umap = config['proj_out'] + "/plots/rpca_conditions_umap.png",
+			split_umap = config['proj_out'] + "/plots/rpca_split_umap.png"
+		conda: "env.yml"
+		shell:
+			"Rscript scripts/integrate_and_cluster.R --rds {input} "
+			"--sample {config[samples]} --clusters_umap {output.clusters_umap} "
+			"--conditions_umap {output.conditions_umap} "
+			"--split_umap {output.split_umap} --rpca "
+			"--reference {config[references]} --out_rds {output.rds}"
+else:
+	rule integrate_and_cluster:
+		"""integrate data from all samples and cluster w/ SCT"""
+		input: expand(rules.subset_and_norm.output[0], sample = config['samples'])
+		output: 
+			rds = config['proj_out'] + "/sct_integrated.rds",
+			clusters_umap = config['proj_out'] + "/plots/sct_clusters_umap.png",
+			conditions_umap = config['proj_out'] + "/plots/sct_conditions_umap.png",
+			split_umap = config['proj_out'] + "/plots/sct_split_umap.png"
+		conda: "env.yml"
+		shell:
+			"Rscript scripts/integrate_and_cluster.R --rds {input} "
+			"--clusters_umap {output.clusters_umap} "
+			"--conditions_umap {output.conditions_umap} "
+			"--split_umap {output.split_umap} --out_rds {output.rds}"
+
+if config['plot']:
+	rule plot_markers:
+		"""plot featurePlots and dotPlots"""
+		input: rules.integrate_and_cluster.output[0]
+		output: 
+			fp_out = config['proj_out'] + "/plots/featurePlots/{celltype}.png",
+			dp_out = config['proj_out'] + "/plots/dotPlots/{celltype}.png"
+		params: 
+			markers = lambda wildcards: config['markers'][wildcards.celltype]
+		conda: "env.yml"
+		shell:
+			"Rscript scripts/plot_markers.R --rds {input} "
+			"--marker_genes {params.markers} --featureplot_fh {output.fp_out} "
+			"--dotplot_fh {output.dp_out}"
+
+if config['dge']:
+	if config['prefilter']:
+		rule dge:
+			"""run FindAllMarkers on integrated Seurat object"""
+			input: rules.integrate_and_cluster.output[0]
+			output: config['proj_out'] + "/cluster_markers.csv"
+			params: 
+				test = config['test']
+			conda: "env.yml"
+			shell:
+				"Rscript scripts/deg_testing.R --rds {input} "
+				"--test {params.test} --prefilter "
+				"--out {output}"
+	else :
+		rule dge:
+			"""run FindAllMarkers on integrated Seurat object"""
+			input: rules.integrate_and_cluster.output[0]
+			output: config['proj_out'] + "/cluster_markers.csv"
+			params: 
+				test = config['test']
+			conda: "env.yml"
+			shell:
+				"Rscript scripts/deg_testing.R --rds {input} "
+				"--test {params.test} --out {output}"
+
+
+rule make_report:
+	"""
+	record options used for this analysis
+	"""
+	output: config['proj_out'] + "/report.txt"
+	shell:
+		"""
+		cat config.yml > {output}
+		"""
+
+				

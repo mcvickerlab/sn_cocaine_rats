@@ -1,0 +1,314 @@
+configfile: "config.yml"
+
+# wildcards for GWAS
+zip_sources = []
+zip_studies = []
+for source in config['sources']:
+	n = len(config['studies'][source]['names'])
+	zip_sources.extend([source]*n)
+	zip_studies.extend(config['studies'][source]['names'])
+
+chromosomes = list(range(1,23))
+
+targets = []
+# munge_sumstats target files
+targets.append(
+	expand(
+		expand(
+			"sumstats/{source}/ldsc_sumstats/{study}.{{ext}}", zip,
+			source = zip_sources, study = zip_studies
+			),
+		ext = ['log', 'sumstats.gz']
+		)
+	)
+
+# bg liftOver
+if config['bg_liftover']:
+	targets.append(
+		expand(config['out'] + "/hg19_peaks/bg/{bg}{ext}",
+			bg = config['bg_dataset'],
+			ext = ['-lifted.bed', '.unmapped']
+			)
+		)
+else:
+	targets.append(
+		expand(config['out'] + "/hg19_peaks/bg/{bg}.bed",
+			bg = config['bg_dataset']))
+
+# fg peaks liftOver
+targets.append(
+	expand(
+		config['out'] + "/hg19_peaks/fg_cts/{celltype}{ext}", 
+		celltype = config['celltypes'],
+		ext = ['-lifted.bed', '.unmapped']
+	)
+)
+# make_annot.py
+targets.append(
+	expand(config['annot_dir'] + "/cts/{celltype}.{chr}.annot.gz", 
+		celltype = config['celltypes'],
+		chr = chromosomes
+	)
+)
+targets.append(
+	expand(config['annot_dir'] + "/bg/{bg}.{chr}.annot.gz",
+		bg = config['bg_dataset'], chr = chromosomes)
+	)
+# ldsc.py
+targets.append(
+	expand(
+		config['annot_dir'] + "/cts/{celltype}.{chr}.{ext}",
+		celltype = config['celltypes'],
+		chr = chromosomes,
+		ext = ['log', 'l2.ldscore.gz', 'l2.M_5_50', 'l2.M']
+	)
+)
+targets.append(
+	expand(config['annot_dir'] + "/bg/{bg}.{chr}.{ext}",
+		bg = config['bg_dataset'],
+		chr = chromosomes,
+		ext = ['log', 'l2.ldscore.gz', 'l2.M_5_50', 'l2.M']
+		)
+	)
+#ldcts target file
+targets.append(config['out'] + "/target.ldcts")
+
+# partition_h2 target files
+# targets.append(
+# 	expand(
+# 		expand(config['out'] + "/{source}/{study}.{{ext}}", zip,
+# 			source = zip_sources, study = zip_studies
+# 			),
+# 		ext = ['cts_results.txt', 'log']
+# 		)
+# 	)
+targets.append(
+	expand(config['out'] + "/{source}/{study}.cell_type_results.txt", zip,
+			source = zip_sources, study = zip_studies
+		)
+	)
+# heatmaps + clustermaps
+# if config['ukb']:
+# 	targets.append(
+# 		expand(
+# 			config['out'] + "/plots/heatmaps/{source}-{sample}-{bg}-bg_heatmap-UKB-ONLY.pdf",
+# 			source = config['sources'], sample = config['samples'],
+# 			bg = config['bg_dataset'])
+# 		)
+# else :
+# 	targets.append(
+# 		expand(
+# 			config['out'] + "/plots/heatmaps/{source}-{sample}-{bg}-bg_heatmap.pdf",
+# 			source = config['sources'], sample = config['samples'],
+# 			bg = config['bg_dataset'])
+# 		)
+
+# # targets.append(
+# # 	expand(
+# # 		config['out'] + "/plots/heatmaps/{source}_heatmap.pdf",
+# # 		source = config['sources'])
+# # 	)
+# # targets.append(
+# # 	expand(
+# # 		config['out'] + "/plots/clustermaps/{source}_clustermap.pdf",
+# # 		source = config['sources'])
+# # 	)
+
+rule all:
+	input: targets
+
+rule munge_sumstats:
+	'''parse sumstats for ldsc'''
+	input: lambda wildcards: "sumstats/{source}/{study}." + config['studies'][wildcards.source]['ext']
+	output: 
+		sumstats = "sumstats/{source}/ldsc_sumstats/{study}.sumstats.gz",
+		log = "sumstats/{source}/ldsc_sumstats/{study}.log"
+	params: 
+		script = config['ldsc_dir'] + "/munge_sumstats.py",
+		out = "sumstats/{source}/ldsc_sumstats/{study}",
+		args = lambda wildcards: config['studies'][wildcards.source]['munge_args']
+	conda: config['ldsc_dir'] + "/environment.yml"
+	shell:
+		"""
+		python {params.script} --sumstats {input} \
+		--out {params.out} {params.args}
+		"""
+
+if config['bg_liftover']:
+	rule bg_liftover:
+		input: config['bg_peaks']
+		output:
+			lifted = config['out'] + "/hg19_peaks/bg/{bg}-lifted.bed",
+			unmapped = config['out'] + "/hg19_peaks/bg/{bg}.unmapped"
+		params: config['bg_chain']
+		conda: "env.yml"
+		shell:
+			"liftOver {input} {params} {output.lifted} {output.unmapped}"
+else:
+	rule bg_liftover:
+		input: config['bg_peaks']
+		output: config['out'] + "/hg19_peaks/bg/{bg}.bed"
+		shell:
+			"cp {config[bg_peaks]} {output}"
+
+# rule cat_pos_neg:
+# 	"""
+# 	cat pos/neg fg peaks 
+# 	"""
+# 	input: 
+# 		neg = config['fg_peaks_dir'] + "/{celltype}_neg_fg.bed",
+# 		pos = config['fg_peaks_dir'] + "/{celltype}_pos_fg.bed"
+# 	output: temp(config['tmp'] + "/{celltype}_fg_peaks.bed")
+# 	shell:
+# 		"""
+# 		cat {input.neg} {input.pos} > {output}
+# 		"""
+
+
+rule cts_liftover:
+	# input: rules.cat_pos_neg.output[0]
+	input: config['fg_peaks_dir'] + "/{celltype}_fg_peaks.bed"
+	output: 
+		lifted = config['out'] + "/hg19_peaks/fg_cts/{celltype}-lifted.bed",
+		unmapped = config['out'] + "/hg19_peaks/fg_cts/{celltype}.unmapped"
+	params: config['chain']
+	conda: "env.yml"
+	shell: 
+		"""
+		liftOver -bedPlus=3 {input} {params} {output.lifted} {output.unmapped}
+		"""
+
+if config['bg_liftover']:
+	rule bg_make_annot:
+		input: rules.bg_liftover.output.lifted
+		output: config['annot_dir'] + "/bg/{bg}.{chr}.annot.gz"
+		params:
+			bim = config['bfiles'] + "/1000G.EUR.QC.{chr}.bim",
+			script = config['ldsc_dir'] + "/make_annot.py"
+		conda: config['ldsc_dir'] + "/environment.yml"
+		shell:
+			"""
+			python {params.script} --bed-file {input} \
+			--bimfile {params.bim} --annot-file {output} --thin
+			"""
+else:
+	rule bg_make_annot:
+		input: rules.bg_liftover.output[0]
+		output: config['annot_dir'] + "/bg/{bg}.{chr}.annot.gz"
+		params:
+			bim = config['bfiles'] + "/1000G.EUR.QC.{chr}.bim",
+			script = config['ldsc_dir'] + "/make_annot.py"
+		conda: config['ldsc_dir'] + "/environment.yml"
+		shell:
+			"""
+			python {params.script} --bed-file {input} \
+			--bimfile {params.bim} --annot-file {output} --thin
+			"""
+
+rule cts_make_annot:
+	input: rules.cts_liftover.output.lifted
+	output: config['annot_dir'] + "/cts/{celltype}.{chr}.annot.gz"
+	params:
+		bim = config['bfiles'] + "/1000G.EUR.QC.{chr}.bim",
+		script = config['ldsc_dir'] + "/make_annot.py"
+	conda: config['ldsc_dir'] + "/environment.yml"
+	shell:
+		"""
+		python {params.script} --bed-file {input} \
+		--bimfile {params.bim} --annot-file {output} --thin
+		"""
+
+rule bg_ldsc:
+	input: rules.bg_make_annot.output
+	output:
+		ldscore = config['annot_dir'] + "/bg/{bg}.{chr}.l2.ldscore.gz",
+		log = config['annot_dir'] + "/bg/{bg}.{chr}.log",
+		maf = config['annot_dir'] + "/bg/{bg}.{chr}.l2.M_5_50",
+		mfile = config['annot_dir'] + "/bg/{bg}.{chr}.l2.M"
+	params:
+		out = config['annot_dir'] + "/bg/{bg}.{chr}",
+		script = config['ldsc_dir'] + "/ldsc.py",
+		bfile = config['bfiles'] + "/1000G.EUR.QC.{chr}",
+		snps = config['hmsnps_dir'] + "/hm.{chr}.snp"
+	conda: config['ldsc_dir'] + "/environment.yml"
+	shell:
+		"""
+		python {params.script} --l2 \
+		--bfile {params.bfile} \
+		--ld-wind-cm 1 \
+		--annot {input} \
+		--out {params.out} \
+		--thin-annot \
+		--n-blocks 1000 \
+		--print-snps {params.snps}
+		"""
+
+rule cts_ldsc:
+	input: rules.cts_make_annot.output
+	output:
+		ldscore = config['annot_dir'] + "/cts/{celltype}.{chr}.l2.ldscore.gz",
+		log = config['annot_dir'] + "/cts/{celltype}.{chr}.log",
+		maf = config['annot_dir'] + "/cts/{celltype}.{chr}.l2.M_5_50",
+		mfile = config['annot_dir'] + "/cts/{celltype}.{chr}.l2.M"
+	params: 
+		out = config['annot_dir'] + "/cts/{celltype}.{chr}",
+		script = config['ldsc_dir'] + "/ldsc.py",
+		bfile = config['bfiles'] + "/1000G.EUR.QC.{chr}",
+		snps = config['hmsnps_dir'] + "/hm.{chr}.snp"
+	conda: config['ldsc_dir'] + "/environment.yml"
+	shell:
+		"""
+		python {params.script} --l2 \
+		--bfile {params.bfile} \
+		--ld-wind-cm 1 \
+		--annot {input} \
+		--out {params.out} \
+		--thin-annot \
+		--n-blocks 1000 \
+		--print-snps {params.snps}
+		"""
+
+rule make_ldcts:
+	input: 
+		cts = expand(rules.cts_ldsc.output.ldscore, 
+			celltype = config['celltypes'],
+			chr = chromosomes),
+		bg = expand(rules.bg_ldsc.output.ldscore,
+			bg = config['bg_dataset'],
+			chr = chromosomes)
+	params:
+		cts = config['celltypes'],
+		bg = config['bg_dataset'],
+		cts_dir = config['annot_dir'] + "/cts",
+		bg_dir = config['annot_dir'] + "/bg"
+	output: config['out'] + "/target.ldcts"
+	shell:
+		"""
+		python scripts/make_ldcts.py --bg {params.bg} \
+		--bg_dir {params.bg_dir} \
+		--celltypes {params.cts} \
+		--cts_dir {params.cts_dir} \
+		--out {output}
+		"""
+
+rule partition_h2:
+	input: 
+		ldcts = rules.make_ldcts.output[0],
+		gwas = rules.munge_sumstats.output.sumstats
+	output:
+		results = config['out'] + "/{source}/{study}.cell_type_results.txt"
+		# log = config['out'] + "/{source}/{study}.log"
+	params:
+		ref = config['baseline_dir'] + "/baseline.",
+		out = config['out'] + "/{source}/{study}",
+		weights = config['weights_dir'] + "/weights.",
+		script = config['ldsc_dir'] + "/ldsc.py"
+	conda: config['ldsc_dir'] + "/environment.yml"
+	shell:
+		"""
+		python {params.script} --h2-cts {input.gwas} \
+		--ref-ld-chr {params.ref} \
+		--out {params.out} \
+		--ref-ld-chr-cts {input.ldcts} \
+		--w-ld-chr {params.weights}
+		"""

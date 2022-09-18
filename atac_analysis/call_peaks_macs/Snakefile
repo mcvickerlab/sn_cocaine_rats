@@ -1,0 +1,106 @@
+configfile: "config.yml"
+
+targets = []
+
+get_barcodes_output = expand(config['out'] + "/cts_barcodes/{sample}/{celltype}_barcodes.tsv",
+	sample = config['samples'], celltype = config['celltypes'])
+targets.extend(get_barcodes_output)
+
+subset_bam_output = expand(config['bams_dir'] + "/cts_bams/{sample}/{celltype}.{ext}",
+	sample = config['samples'], celltype = config['celltypes'],
+	ext = ['bam','bam.bai']
+	)
+targets.extend(subset_bam_output)
+
+callpeaks_out = expand(config['out'] + "/peaks/{sample}/{celltype}",
+	sample = config['samples'], celltype = config['celltypes'])
+# callpeaks_done = expand(config['out'] + "/peaks/{sample}-{celltype}.done",
+# 	sample = config['samples'], celltype = config['celltypes'])
+targets.extend(callpeaks_out)
+
+# callpeaks_done = expand(config['out'] + "/{sample}-{celltype}.done", 
+# 			sample = config['samples'], celltype = celltypes)
+# callpeaks_out = expand(config['macs_outdir'] + "/{sample}/{celltype}/{celltype}_{outfile}",
+# 	sample = config['samples'], celltype = celltypes,
+# 	outfile = ['control_lambda.bdg','peaks.narrowPeak','peaks.xls','summits.bed','treat_pileup.bdg'])
+
+# targets.extend(callpeaks_done)
+# targets.extend(callpeaks_out)
+
+# targets.extend(expand(config['macs_outdir'] + "/{sample}/{celltype}",
+# 	sample = config['samples'], celltype = celltypes))
+
+# if config['make_bed']:
+# 	bed_outs = expand(config['macs_outdir'] + "/{sample}/{celltype}_peaks.bed",
+# 		sample = config['samples'], celltype = celltypes)
+# 	targets.extend(bed_outs)
+
+rule all:
+	input: targets
+
+rule get_barcodes:
+	"""
+	for each sample, iterate through all cell types and get cell type-specific barcode lists
+	"""
+	input: config['rds']
+	# output: directory(config['out']+"/cts_barcodes/{sample}")
+	output: config['out'] + "/cts_barcodes/{sample}/{celltype}_barcodes.tsv"
+	params: config['out']+"/cts_barcodes/{sample}"
+	conda: "env.yml"
+	shell:
+		"""
+		Rscript scripts/get_cts_barcodes_by_rat.R --rds {input} \
+		--sample {wildcards.sample} --out {params}
+		"""
+
+rule subset_bam:
+	"""
+	for each sample, subset BAM (cellranger output) by celltype
+	"""
+	input: 
+		barcodes = rules.get_barcodes.output[0],
+		bam = config['bams_dir'] + "/{sample}/outs/possorted_bam.bam"
+	output:
+		bam = config['bams_dir'] + "/cts_bams/{sample}/{celltype}.bam",
+		bai = config['bams_dir'] + "/cts_bams/{sample}/{celltype}.bam.bai"
+	conda: "env.yml"
+	shell:
+		"""
+		subset-bam --bam {input.bam} --cell-barcodes {input.barcodes} --out-bam {output.bam} && \
+		samtools index {output.bam}
+		"""
+
+rule callpeaks:
+	"""
+	call peaks on cell type-specific bam files 
+	"""
+	input: rules.subset_bam.output.bam
+	output:
+		macs = directory(config['out'] + "/peaks/{sample}/{celltype}"),
+		# ctrl_lmb = config['out'] + "/peaks/{sample}/{celltype}/{celltype}_control_lambda.bdg",
+		# narrowPeak = config['out'] + "/peaks/{sample}/{celltype}/{celltype}_peaks.narrowPeak",
+		# xls = config['out'] + "/peaks/{sample}/{celltype}/{celltype}_peaks.xls",
+		# summits = config['out'] + "/peaks/{sample}/{celltype}/{celltype}_summits.bed",
+		# pileup = config['out'] + "/peaks/{sample}/{celltype}/{celltype}_treat_pileup.bdg",
+		done = temp(touch(config['out'] + "/tmp/{sample}-{celltype}.done"))
+	params: 
+		# outdir = config['out'] + "/{sample}/{celltype}",
+		opts = config['opts']
+	conda: "env.yml"
+	shell:
+		"""
+		macs2 callpeak -t {input} -f BAM -n {wildcards.celltype} --outdir {output.macs} {params.opts}
+		"""
+
+# if config['make_bed']:
+# 	"""
+# 	preprend 'chr'
+# 	"""
+# 	rule make_bed:
+# 		input: rules.callpeaks.output.narrowPeak
+# 		output: config['macs_outdir'] + "/{sample}/{celltype}_peaks.bed"
+# 		shell:
+# 			"""
+# 			cut -f1-6 {input} > {output} && \
+# 			sed -i -e 's/^/chr/' {output}
+# 			"""

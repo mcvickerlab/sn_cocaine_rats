@@ -1,0 +1,69 @@
+configfile: "config.yml"
+
+celltypes = []
+with open(config['celltypes']) as fh:
+	celltypes = fh.read().splitlines()
+
+rule all:
+	input: 
+		# dynamic(
+		# 	expand(
+		# 		config['dge_out'] + "/{analysis}/{{celltype}}_{analysis}.csv", 
+		# 		analysis = config['analyses']
+		# 		)
+		# 	)
+		expand(
+			config['dge_out'] + "/{test}/{analysis}", 
+			analysis = config['analyses'],
+			test = config['test']
+			),
+		# expand(
+		# 	config['dge_out'] + "/{test}/{analysis}/{celltype}.csv", 
+		# 	analysis = config['analyses'],
+		# 	test = config['test'],
+		# 	celltype = celltypes
+		# 	),
+		config['dge_out'] + "/" + "report.txt"
+
+if config['prefilter']:
+	print('prefiltering')
+	rule dge:
+		input: config['input']
+		# output: config['dge_out'] + "/{test}/{analysis}/{celltype}.csv"
+		output: directory(config['dge_out'] + "/{test}/{analysis}")
+		params: 
+			outdir = config['dge_out'] + "/{test}/{analysis}",
+			opts = lambda wildcards: config['params'][wildcards.analysis]
+		conda: "env.yml"
+		shell:
+			"""
+			Rscript scripts/dge_celltypes.R --rds {input} \
+			--test {config[test]} --prefilter --outdir {params.outdir} \
+			{params.opts}
+			"""
+			
+else:
+	rule dge:
+		input: config['input']
+		# output: config['dge_out'] + "/{test}/{analysis}/{celltype}.csv"
+		output: directory(config['dge_out'] + "/{test}/{analysis}")
+		params: 
+			outdir = config['dge_out'] + "/{test}/{analysis}",
+			opts = lambda wildcards: config['params'][wildcards.analysis]
+		conda: "env.yml"
+		shell:
+			"""
+			Rscript scripts/dge_celltypes.R --rds {input} \
+			--test {config[test]} --outdir {params.outdir} \
+			{params.opts} 
+			"""
+
+rule make_report:
+	"""
+	record options used for this analysis
+	"""
+	output: config['dge_out'] + "/" + "report.txt"
+	shell:
+		"""
+		date | cat - config.yml > {output}
+		"""

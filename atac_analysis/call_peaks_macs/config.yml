@@ -1,0 +1,48 @@
+out: out
+
+rds: /iblm/netapp/home/jezhou/rat_snatacseq_analysis/get_combined_peak_mtx/data/rds/full_cocaine_dataset_with_naive_rn6/harmony_with_predicted_id.rds
+
+macs_outdir: /iblm/netapp/data1/jezhou/Telese_Rat_Amygdala/snATAC/peaks/cts
+
+bams_dir: /iblm/netapp/data1/jezhou/Telese_Rat_Amygdala/snATAC/realigned_outputs
+
+samples: [FTL_452_M1071_933000320186811,
+FTL_453_M964_933000320047166,
+FTL_454_M1182_933000320187130, 
+FTL_455_M1085_933000320047651,
+FTL_456_M985_933000320047161,
+FTL_457_M1172_933000320187092,
+FTL_460_M975_933000320047019,
+FTL_461_M768_933000320046611,
+FTL_462_M779_933000320045785,
+FTL_464_M986_933000320047174,
+Rat_Amygdala__cocaine_low,
+Rat_Amygdala_cocaine_high]
+
+celltypes: [Astrocytes,
+Endothelial,
+ExNeuron,
+InhNeuron,
+Microglia,
+Oligodendrocytes,
+OPC]
+
+# celltypes: [Astrocytes,
+# Cck+/Vip+,
+# Chat+,
+# Endothelial,
+# ExNeuron,
+# InhNeuron,
+# Microglia,
+# Nos1+,
+# Oligodendrocytes,
+# OPC,
+# Pvalb+,
+# Reln+,
+# Sst+]
+
+opts: "--nomodel --shift 100 --ext 200 --qval 5e-2 -B --SPMR"
+
+# if true, make bed files from narrowPeak outputs with chr prepended
+# can be useful for other analyses
+make_bed: True

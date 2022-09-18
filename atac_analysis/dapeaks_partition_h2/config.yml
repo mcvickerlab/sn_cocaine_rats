@@ -1,0 +1,62 @@
+out: out_hg19_03-07-2022
+tmp: tmp
+
+annot_dir: ldsc_annot_hg19
+
+### LDSC data ###
+ldsc_dir: /iblm/netapp/home/jezhou/ldsc
+
+bfiles: /iblm/netapp/data1/external/LDSC/1000G_EUR_Phase3_plink
+baseline_dir: /iblm/netapp/data1/external/LDSC/1000G_EUR_Phase3_baseline
+weights_dir: /iblm/netapp/data1/external/LDSC/weights_hm3_no_hla
+# frq_dir: /iblm/netapp/home/jezhou/ldsc/files/1000G_Phase3_frq
+hmsnps_dir: /iblm/netapp/data1/external/LDSC/hapmap3_snps
+
+### Cell-type specific LDSC ###
+celltypes: [InhNeuron,
+ExNeuron,
+Oligodendrocytes,
+Astrocytes,
+OPC,
+# Sst+,
+# Endothelial,
+Microglia]
+
+bg_liftover: False
+bg_dataset: Honeybadger2
+bg_peaks: /iblm/netapp/data1/external/ENCODE/Honeybadger2/regions_all.bed.gz
+# bg_chain: /iblm/netapp/data1/external/UCSC/liftOver_files/hg19ToHg38.over.chain.gz
+
+# fg_peaks_dir: /iblm/netapp/home/jezhou/rat_snatacseq_analysis/homer_dapeaks_percentiles/out/homer_inputs
+fg_peaks_dir: /iblm/netapp/home/jezhou/rat_snatacseq_analysis/great/out/fg
+# chain: /iblm/netapp/data1/external/UCSC/liftOver_files/rn6ToHg38.over.chain.gz
+chain: /iblm/netapp/data1/external/UCSC/liftOver_files/rn6ToHg19.over.chain.gz
+
+#### SUMMARY STATS ####
+sources: [Polimanti2020,
+Liu2019]
+
+studies: 
+  Polimanti2020: 
+    ext: 'tbl.gz'
+    munge_args: --snp rsID --N-col Total_N --N-cas-col Total_NCase --N-con-col Total_NControl --a1 Allele1 --a2 Allele2 --p P-value --frq Freq1
+    names: [opi.DEPvEXP_EUR,
+    # opi.DEPvEXP_AFR,
+    opi.DEPvUNX_AFR,
+    opi.DEPvUNX_EUR,
+    opi.EXPvUNX_AFR,
+    opi.EXPvUNX_EUR]
+  Liu2019: 
+    ext: 'txt.gz'
+    munge_args: --a1 REF --a2 ALT --frq AF 
+    names: [AgeofInitiation,
+    AgeOfInitiation.WithoutUKB,
+    CigarettesPerDay,
+    CigarettesPerDay.WithoutUKB,
+    DrinksPerWeek,
+    DrinksPerWeek.WithoutUKB,
+    SmokingCessation,
+    SmokingCessation.WithoutUKB,
+    SmokingInitiation,
+    SmokingInitiation.WithoutUKB]
+

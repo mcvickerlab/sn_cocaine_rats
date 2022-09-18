@@ -1,0 +1,326 @@
+running GSEA on Astrocytes
+$celltype
+[1] "Astrocytes"
+
+$cutoff
+[1] 1
+
+$go
+[1] TRUE
+
+$kegg
+[1] TRUE
+
+$markers
+[1] "/iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/dge_labeled/out/relabeled_subtypes3/high_vs_low/Astrocytes_high_vs_low.csv"
+
+$outdir
+[1] "/iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/clusterProfiler/relabeled_subtypes3/high_vs_low/gsea_zscore/results"
+
+$padjust
+[1] "fdr"
+
+$zscore
+[1] TRUE
+
+running GSEA on Cck+-Vip+
+$celltype
+[1] "Cck+-Vip+"
+
+$cutoff
+[1] 1
+
+$go
+[1] TRUE
+
+$kegg
+[1] TRUE
+
+$markers
+[1] "/iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/dge_labeled/out/relabeled_subtypes3/high_vs_low/Cck+-Vip+_high_vs_low.csv"
+
+$outdir
+[1] "/iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/clusterProfiler/relabeled_subtypes3/high_vs_low/gsea_zscore/results"
+
+$padjust
+[1] "fdr"
+
+$zscore
+[1] TRUE
+
+running GSEA on Chat+
+$celltype
+[1] "Chat+"
+
+$cutoff
+[1] 1
+
+$go
+[1] TRUE
+
+$kegg
+[1] TRUE
+
+$markers
+[1] "/iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/dge_labeled/out/relabeled_subtypes3/high_vs_low/Chat+_high_vs_low.csv"
+
+$outdir
+[1] "/iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/clusterProfiler/relabeled_subtypes3/high_vs_low/gsea_zscore/results"
+
+$padjust
+[1] "fdr"
+
+$zscore
+[1] TRUE
+
+running GSEA on Endothelial
+$celltype
+[1] "Endothelial"
+
+$cutoff
+[1] 1
+
+$go
+[1] TRUE
+
+$kegg
+[1] TRUE
+
+$markers
+[1] "/iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/dge_labeled/out/relabeled_subtypes3/high_vs_low/Endothelial_high_vs_low.csv"
+
+$outdir
+[1] "/iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/clusterProfiler/relabeled_subtypes3/high_vs_low/gsea_zscore/results"
+
+$padjust
+[1] "fdr"
+
+$zscore
+[1] TRUE
+
+running GSEA on ExNeuron
+$celltype
+[1] "ExNeuron"
+
+$cutoff
+[1] 1
+
+$go
+[1] TRUE
+
+$kegg
+[1] TRUE
+
+$markers
+[1] "/iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/dge_labeled/out/relabeled_subtypes3/high_vs_low/ExNeuron_high_vs_low.csv"
+
+$outdir
+[1] "/iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/clusterProfiler/relabeled_subtypes3/high_vs_low/gsea_zscore/results"
+
+$padjust
+[1] "fdr"
+
+$zscore
+[1] TRUE
+
+running GSEA on InhNeuron
+$celltype
+[1] "InhNeuron"
+
+$cutoff
+[1] 1
+
+$go
+[1] TRUE
+
+$kegg
+[1] TRUE
+
+$markers
+[1] "/iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/dge_labeled/out/relabeled_subtypes3/high_vs_low/InhNeuron_high_vs_low.csv"
+
+$outdir
+[1] "/iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/clusterProfiler/relabeled_subtypes3/high_vs_low/gsea_zscore/results"
+
+$padjust
+[1] "fdr"
+
+$zscore
+[1] TRUE
+
+running GSEA on Microglia
+$celltype
+[1] "Microglia"
+
+$cutoff
+[1] 1
+
+$go
+[1] TRUE
+
+$kegg
+[1] TRUE
+
+$markers
+[1] "/iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/dge_labeled/out/relabeled_subtypes3/high_vs_low/Microglia_high_vs_low.csv"
+
+$outdir
+[1] "/iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/clusterProfiler/relabeled_subtypes3/high_vs_low/gsea_zscore/results"
+
+$padjust
+[1] "fdr"
+
+$zscore
+[1] TRUE
+
+running GSEA on Nos1+
+$celltype
+[1] "Nos1+"
+
+$cutoff
+[1] 1
+
+$go
+[1] TRUE
+
+$kegg
+[1] TRUE
+
+$markers
+[1] "/iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/dge_labeled/out/relabeled_subtypes3/high_vs_low/Nos1+_high_vs_low.csv"
+
+$outdir
+[1] "/iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/clusterProfiler/relabeled_subtypes3/high_vs_low/gsea_zscore/results"
+
+$padjust
+[1] "fdr"
+
+$zscore
+[1] TRUE
+
+running GSEA on Oligodendrocytes
+$celltype
+[1] "Oligodendrocytes"
+
+$cutoff
+[1] 1
+
+$go
+[1] TRUE
+
+$kegg
+[1] TRUE
+
+$markers
+[1] "/iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/dge_labeled/out/relabeled_subtypes3/high_vs_low/Oligodendrocytes_high_vs_low.csv"
+
+$outdir
+[1] "/iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/clusterProfiler/relabeled_subtypes3/high_vs_low/gsea_zscore/results"
+
+$padjust
+[1] "fdr"
+
+$zscore
+[1] TRUE
+
+running GSEA on OPC
+$celltype
+[1] "OPC"
+
+$cutoff
+[1] 1
+
+$go
+[1] TRUE
+
+$kegg
+[1] TRUE
+
+$markers
+[1] "/iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/dge_labeled/out/relabeled_subtypes3/high_vs_low/OPC_high_vs_low.csv"
+
+$outdir
+[1] "/iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/clusterProfiler/relabeled_subtypes3/high_vs_low/gsea_zscore/results"
+
+$padjust
+[1] "fdr"
+
+$zscore
+[1] TRUE
+
+running GSEA on Pvalb+
+$celltype
+[1] "Pvalb+"
+
+$cutoff
+[1] 1
+
+$go
+[1] TRUE
+
+$kegg
+[1] TRUE
+
+$markers
+[1] "/iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/dge_labeled/out/relabeled_subtypes3/high_vs_low/Pvalb+_high_vs_low.csv"
+
+$outdir
+[1] "/iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/clusterProfiler/relabeled_subtypes3/high_vs_low/gsea_zscore/results"
+
+$padjust
+[1] "fdr"
+
+$zscore
+[1] TRUE
+
+running GSEA on Reln+
+$celltype
+[1] "Reln+"
+
+$cutoff
+[1] 1
+
+$go
+[1] TRUE
+
+$kegg
+[1] TRUE
+
+$markers
+[1] "/iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/dge_labeled/out/relabeled_subtypes3/high_vs_low/Reln+_high_vs_low.csv"
+
+$outdir
+[1] "/iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/clusterProfiler/relabeled_subtypes3/high_vs_low/gsea_zscore/results"
+
+$padjust
+[1] "fdr"
+
+$zscore
+[1] TRUE
+
+running GSEA on Sst+
+$celltype
+[1] "Sst+"
+
+$cutoff
+[1] 1
+
+$go
+[1] TRUE
+
+$kegg
+[1] TRUE
+
+$markers
+[1] "/iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/dge_labeled/out/relabeled_subtypes3/high_vs_low/Sst+_high_vs_low.csv"
+
+$outdir
+[1] "/iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/clusterProfiler/relabeled_subtypes3/high_vs_low/gsea_zscore/results"
+
+$padjust
+[1] "fdr"
+
+$zscore
+[1] TRUE
+
+ok

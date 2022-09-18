@@ -1,0 +1,63 @@
+configfile: "config.yml"
+
+fastq_ref = {}
+with open(config['fastqs_ref']) as fh:
+	next(fh)
+	for line in fh:
+		l = line.strip().split('\t')
+		if len(l)==4:		
+			fastq_ref[l[0]] = {'treatment': l[1],
+			'addiction_index': l[2],
+			'fastq_prefix': l[3]}
+
+# samples = list(fastq_ref.keys())
+
+rule all:
+	input: 
+		# expand(config['out'] + "/{sample}.{ext}", sample = config['samples'], ext = ['png', 'rds']),
+		# expand(config['data'] + "/{sample}.stamp", sample = config['samples'])
+		# expand(config['out'] + "/{sample}.{ext}", sample = samples, ext = ['png', 'rds']),
+		# expand(config['data'] + "/{sample}.stamp", sample = samples)
+		expand(config['data'] + "/snRNA/{sample}", sample = config['samples'])
+
+rule cellranger_count:
+	params:
+		output_dir = config['data'] + "/snRNA",
+		# fastqs = config['fastqs_dir'] + "/{sample}",
+		fastqs = config['fastqs_dir'],
+		prefix = lambda wildcards: fastq_ref[wildcards.sample]['fastq_prefix']
+	output: 
+		# config['data'] + "/{sample}.stamp"
+		directory(config['data'] + "/snRNA/{sample}")
+	threads: 8
+	conda: "env.yml" 
+	shell: 
+		"""
+		cd {params.output_dir} && 
+
+		/iblm/netapp/home/jezhou/software/cellranger-3.1.0/cellranger count \
+		--id={wildcards.sample} --fastqs={params.fastqs} --sample={params.prefix} \
+		--transcriptome={config[ref_transcriptome]} \
+		--expect-cells={config[expect_cells]} --chemistry={config[chemistry]} \
+		--localmem={config[localmem]} --localcores={config[localcores]}
+
+		# touch {output}
+		"""
+
+rule make_seurat:
+	input: rules.cellranger_count.output[0]
+	output: 
+		vln = config['out'] + "/{sample}.png",
+		rds = config['out'] + "/{sample}.rds"
+	params:
+		data_dir = config['data'] + "/snRNA/{sample}/outs/filtered_feature_bc_matrix",
+		treatment = lambda wildcards: fastq_ref[wildcards.sample]['treatment'],
+		addiction_index = lambda wildcards: fastq_ref[wildcards.sample]['addiction_index']
+	conda: "env.yml"
+	shell: 
+		"Rscript scripts/make_qc_plots.R --input_dir {params.data_dir} "
+		"--sample {wildcards.sample} --treatment {params.treatment} "
+		"--addiction_index {params.addiction_index} "
+		"--min_cells {config[min_cells]} --min_features {config[min_features]} "
+		"--vln_plot {output.vln} --rds {output.rds}"
+

@@ -1,0 +1,377 @@
+running GSEA on Astrocytes
+$celltype
+[1] "Astrocytes"
+
+$cutoff
+[1] 1
+
+$go
+[1] TRUE
+
+$kegg
+[1] TRUE
+
+$markers
+[1] "/iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/dge_labeled/out/relabeled_subtypes/high_vs_low/Astrocytes_high_vs_low.csv"
+
+$outdir
+[1] "/iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/goea/clusterProfiler/relabeled_subtypes/high_vs_low/kegg_gsea_avg_logFC/results"
+
+$padjust
+[1] "fdr"
+
+$zscore
+[1] FALSE
+
+saving gobp results to /iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/goea/clusterProfiler/relabeled_subtypes/high_vs_low/kegg_gsea_avg_logFC/results/Astrocytes_gobp.rds
+saving gobp table to /iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/goea/clusterProfiler/relabeled_subtypes/high_vs_low/kegg_gsea_avg_logFC/results/Astrocytes_gobp.txt
+saving kegg results to /iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/goea/clusterProfiler/relabeled_subtypes/high_vs_low/kegg_gsea_avg_logFC/results/Astrocytes_kegg.rds
+saving kegg table to /iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/goea/clusterProfiler/relabeled_subtypes/high_vs_low/kegg_gsea_avg_logFC/results/Astrocytes_kegg.txt
+running GSEA on Cck+-Vip+
+$celltype
+[1] "Cck+-Vip+"
+
+$cutoff
+[1] 1
+
+$go
+[1] TRUE
+
+$kegg
+[1] TRUE
+
+$markers
+[1] "/iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/dge_labeled/out/relabeled_subtypes/high_vs_low/Cck+-Vip+_high_vs_low.csv"
+
+$outdir
+[1] "/iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/goea/clusterProfiler/relabeled_subtypes/high_vs_low/kegg_gsea_avg_logFC/results"
+
+$padjust
+[1] "fdr"
+
+$zscore
+[1] FALSE
+
+saving gobp results to /iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/goea/clusterProfiler/relabeled_subtypes/high_vs_low/kegg_gsea_avg_logFC/results/Cck+-Vip+_gobp.rds
+saving gobp table to /iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/goea/clusterProfiler/relabeled_subtypes/high_vs_low/kegg_gsea_avg_logFC/results/Cck+-Vip+_gobp.txt
+saving kegg results to /iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/goea/clusterProfiler/relabeled_subtypes/high_vs_low/kegg_gsea_avg_logFC/results/Cck+-Vip+_kegg.rds
+saving kegg table to /iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/goea/clusterProfiler/relabeled_subtypes/high_vs_low/kegg_gsea_avg_logFC/results/Cck+-Vip+_kegg.txt
+running GSEA on Chat+
+$celltype
+[1] "Chat+"
+
+$cutoff
+[1] 1
+
+$go
+[1] TRUE
+
+$kegg
+[1] TRUE
+
+$markers
+[1] "/iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/dge_labeled/out/relabeled_subtypes/high_vs_low/Chat+_high_vs_low.csv"
+
+$outdir
+[1] "/iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/goea/clusterProfiler/relabeled_subtypes/high_vs_low/kegg_gsea_avg_logFC/results"
+
+$padjust
+[1] "fdr"
+
+$zscore
+[1] FALSE
+
+saving gobp results to /iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/goea/clusterProfiler/relabeled_subtypes/high_vs_low/kegg_gsea_avg_logFC/results/Chat+_gobp.rds
+saving gobp table to /iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/goea/clusterProfiler/relabeled_subtypes/high_vs_low/kegg_gsea_avg_logFC/results/Chat+_gobp.txt
+saving kegg results to /iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/goea/clusterProfiler/relabeled_subtypes/high_vs_low/kegg_gsea_avg_logFC/results/Chat+_kegg.rds
+saving kegg table to /iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/goea/clusterProfiler/relabeled_subtypes/high_vs_low/kegg_gsea_avg_logFC/results/Chat+_kegg.txt
+running GSEA on Endothelial
+$celltype
+[1] "Endothelial"
+
+$cutoff
+[1] 1
+
+$go
+[1] TRUE
+
+$kegg
+[1] TRUE
+
+$markers
+[1] "/iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/dge_labeled/out/relabeled_subtypes/high_vs_low/Endothelial_high_vs_low.csv"
+
+$outdir
+[1] "/iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/goea/clusterProfiler/relabeled_subtypes/high_vs_low/kegg_gsea_avg_logFC/results"
+
+$padjust
+[1] "fdr"
+
+$zscore
+[1] FALSE
+
+saving gobp results to /iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/goea/clusterProfiler/relabeled_subtypes/high_vs_low/kegg_gsea_avg_logFC/results/Endothelial_gobp.rds
+saving gobp table to /iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/goea/clusterProfiler/relabeled_subtypes/high_vs_low/kegg_gsea_avg_logFC/results/Endothelial_gobp.txt
+saving kegg results to /iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/goea/clusterProfiler/relabeled_subtypes/high_vs_low/kegg_gsea_avg_logFC/results/Endothelial_kegg.rds
+saving kegg table to /iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/goea/clusterProfiler/relabeled_subtypes/high_vs_low/kegg_gsea_avg_logFC/results/Endothelial_kegg.txt
+running GSEA on ExNeuron
+$celltype
+[1] "ExNeuron"
+
+$cutoff
+[1] 1
+
+$go
+[1] TRUE
+
+$kegg
+[1] TRUE
+
+$markers
+[1] "/iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/dge_labeled/out/relabeled_subtypes/high_vs_low/ExNeuron_high_vs_low.csv"
+
+$outdir
+[1] "/iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/goea/clusterProfiler/relabeled_subtypes/high_vs_low/kegg_gsea_avg_logFC/results"
+
+$padjust
+[1] "fdr"
+
+$zscore
+[1] FALSE
+
+saving gobp results to /iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/goea/clusterProfiler/relabeled_subtypes/high_vs_low/kegg_gsea_avg_logFC/results/ExNeuron_gobp.rds
+saving gobp table to /iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/goea/clusterProfiler/relabeled_subtypes/high_vs_low/kegg_gsea_avg_logFC/results/ExNeuron_gobp.txt
+saving kegg results to /iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/goea/clusterProfiler/relabeled_subtypes/high_vs_low/kegg_gsea_avg_logFC/results/ExNeuron_kegg.rds
+saving kegg table to /iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/goea/clusterProfiler/relabeled_subtypes/high_vs_low/kegg_gsea_avg_logFC/results/ExNeuron_kegg.txt
+running GSEA on InhNeuron
+$celltype
+[1] "InhNeuron"
+
+$cutoff
+[1] 1
+
+$go
+[1] TRUE
+
+$kegg
+[1] TRUE
+
+$markers
+[1] "/iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/dge_labeled/out/relabeled_subtypes/high_vs_low/InhNeuron_high_vs_low.csv"
+
+$outdir
+[1] "/iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/goea/clusterProfiler/relabeled_subtypes/high_vs_low/kegg_gsea_avg_logFC/results"
+
+$padjust
+[1] "fdr"
+
+$zscore
+[1] FALSE
+
+saving gobp results to /iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/goea/clusterProfiler/relabeled_subtypes/high_vs_low/kegg_gsea_avg_logFC/results/InhNeuron_gobp.rds
+saving gobp table to /iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/goea/clusterProfiler/relabeled_subtypes/high_vs_low/kegg_gsea_avg_logFC/results/InhNeuron_gobp.txt
+saving kegg results to /iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/goea/clusterProfiler/relabeled_subtypes/high_vs_low/kegg_gsea_avg_logFC/results/InhNeuron_kegg.rds
+saving kegg table to /iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/goea/clusterProfiler/relabeled_subtypes/high_vs_low/kegg_gsea_avg_logFC/results/InhNeuron_kegg.txt
+running GSEA on Microglia
+$celltype
+[1] "Microglia"
+
+$cutoff
+[1] 1
+
+$go
+[1] TRUE
+
+$kegg
+[1] TRUE
+
+$markers
+[1] "/iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/dge_labeled/out/relabeled_subtypes/high_vs_low/Microglia_high_vs_low.csv"
+
+$outdir
+[1] "/iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/goea/clusterProfiler/relabeled_subtypes/high_vs_low/kegg_gsea_avg_logFC/results"
+
+$padjust
+[1] "fdr"
+
+$zscore
+[1] FALSE
+
+saving gobp results to /iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/goea/clusterProfiler/relabeled_subtypes/high_vs_low/kegg_gsea_avg_logFC/results/Microglia_gobp.rds
+saving gobp table to /iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/goea/clusterProfiler/relabeled_subtypes/high_vs_low/kegg_gsea_avg_logFC/results/Microglia_gobp.txt
+saving kegg results to /iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/goea/clusterProfiler/relabeled_subtypes/high_vs_low/kegg_gsea_avg_logFC/results/Microglia_kegg.rds
+saving kegg table to /iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/goea/clusterProfiler/relabeled_subtypes/high_vs_low/kegg_gsea_avg_logFC/results/Microglia_kegg.txt
+running GSEA on Nos1+
+$celltype
+[1] "Nos1+"
+
+$cutoff
+[1] 1
+
+$go
+[1] TRUE
+
+$kegg
+[1] TRUE
+
+$markers
+[1] "/iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/dge_labeled/out/relabeled_subtypes/high_vs_low/Nos1+_high_vs_low.csv"
+
+$outdir
+[1] "/iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/goea/clusterProfiler/relabeled_subtypes/high_vs_low/kegg_gsea_avg_logFC/results"
+
+$padjust
+[1] "fdr"
+
+$zscore
+[1] FALSE
+
+saving gobp results to /iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/goea/clusterProfiler/relabeled_subtypes/high_vs_low/kegg_gsea_avg_logFC/results/Nos1+_gobp.rds
+saving gobp table to /iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/goea/clusterProfiler/relabeled_subtypes/high_vs_low/kegg_gsea_avg_logFC/results/Nos1+_gobp.txt
+saving kegg results to /iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/goea/clusterProfiler/relabeled_subtypes/high_vs_low/kegg_gsea_avg_logFC/results/Nos1+_kegg.rds
+saving kegg table to /iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/goea/clusterProfiler/relabeled_subtypes/high_vs_low/kegg_gsea_avg_logFC/results/Nos1+_kegg.txt
+running GSEA on Oligodendrocytes
+$celltype
+[1] "Oligodendrocytes"
+
+$cutoff
+[1] 1
+
+$go
+[1] TRUE
+
+$kegg
+[1] TRUE
+
+$markers
+[1] "/iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/dge_labeled/out/relabeled_subtypes/high_vs_low/Oligodendrocytes_high_vs_low.csv"
+
+$outdir
+[1] "/iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/goea/clusterProfiler/relabeled_subtypes/high_vs_low/kegg_gsea_avg_logFC/results"
+
+$padjust
+[1] "fdr"
+
+$zscore
+[1] FALSE
+
+saving gobp results to /iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/goea/clusterProfiler/relabeled_subtypes/high_vs_low/kegg_gsea_avg_logFC/results/Oligodendrocytes_gobp.rds
+saving gobp table to /iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/goea/clusterProfiler/relabeled_subtypes/high_vs_low/kegg_gsea_avg_logFC/results/Oligodendrocytes_gobp.txt
+saving kegg results to /iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/goea/clusterProfiler/relabeled_subtypes/high_vs_low/kegg_gsea_avg_logFC/results/Oligodendrocytes_kegg.rds
+saving kegg table to /iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/goea/clusterProfiler/relabeled_subtypes/high_vs_low/kegg_gsea_avg_logFC/results/Oligodendrocytes_kegg.txt
+running GSEA on OPC
+$celltype
+[1] "OPC"
+
+$cutoff
+[1] 1
+
+$go
+[1] TRUE
+
+$kegg
+[1] TRUE
+
+$markers
+[1] "/iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/dge_labeled/out/relabeled_subtypes/high_vs_low/OPC_high_vs_low.csv"
+
+$outdir
+[1] "/iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/goea/clusterProfiler/relabeled_subtypes/high_vs_low/kegg_gsea_avg_logFC/results"
+
+$padjust
+[1] "fdr"
+
+$zscore
+[1] FALSE
+
+saving gobp results to /iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/goea/clusterProfiler/relabeled_subtypes/high_vs_low/kegg_gsea_avg_logFC/results/OPC_gobp.rds
+saving gobp table to /iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/goea/clusterProfiler/relabeled_subtypes/high_vs_low/kegg_gsea_avg_logFC/results/OPC_gobp.txt
+saving kegg results to /iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/goea/clusterProfiler/relabeled_subtypes/high_vs_low/kegg_gsea_avg_logFC/results/OPC_kegg.rds
+saving kegg table to /iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/goea/clusterProfiler/relabeled_subtypes/high_vs_low/kegg_gsea_avg_logFC/results/OPC_kegg.txt
+running GSEA on Pvalb+
+$celltype
+[1] "Pvalb+"
+
+$cutoff
+[1] 1
+
+$go
+[1] TRUE
+
+$kegg
+[1] TRUE
+
+$markers
+[1] "/iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/dge_labeled/out/relabeled_subtypes/high_vs_low/Pvalb+_high_vs_low.csv"
+
+$outdir
+[1] "/iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/goea/clusterProfiler/relabeled_subtypes/high_vs_low/kegg_gsea_avg_logFC/results"
+
+$padjust
+[1] "fdr"
+
+$zscore
+[1] FALSE
+
+saving gobp results to /iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/goea/clusterProfiler/relabeled_subtypes/high_vs_low/kegg_gsea_avg_logFC/results/Pvalb+_gobp.rds
+saving gobp table to /iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/goea/clusterProfiler/relabeled_subtypes/high_vs_low/kegg_gsea_avg_logFC/results/Pvalb+_gobp.txt
+saving kegg results to /iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/goea/clusterProfiler/relabeled_subtypes/high_vs_low/kegg_gsea_avg_logFC/results/Pvalb+_kegg.rds
+saving kegg table to /iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/goea/clusterProfiler/relabeled_subtypes/high_vs_low/kegg_gsea_avg_logFC/results/Pvalb+_kegg.txt
+running GSEA on Reln+
+$celltype
+[1] "Reln+"
+
+$cutoff
+[1] 1
+
+$go
+[1] TRUE
+
+$kegg
+[1] TRUE
+
+$markers
+[1] "/iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/dge_labeled/out/relabeled_subtypes/high_vs_low/Reln+_high_vs_low.csv"
+
+$outdir
+[1] "/iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/goea/clusterProfiler/relabeled_subtypes/high_vs_low/kegg_gsea_avg_logFC/results"
+
+$padjust
+[1] "fdr"
+
+$zscore
+[1] FALSE
+
+saving gobp results to /iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/goea/clusterProfiler/relabeled_subtypes/high_vs_low/kegg_gsea_avg_logFC/results/Reln+_gobp.rds
+saving gobp table to /iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/goea/clusterProfiler/relabeled_subtypes/high_vs_low/kegg_gsea_avg_logFC/results/Reln+_gobp.txt
+saving kegg results to /iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/goea/clusterProfiler/relabeled_subtypes/high_vs_low/kegg_gsea_avg_logFC/results/Reln+_kegg.rds
+saving kegg table to /iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/goea/clusterProfiler/relabeled_subtypes/high_vs_low/kegg_gsea_avg_logFC/results/Reln+_kegg.txt
+running GSEA on Sst+
+$celltype
+[1] "Sst+"
+
+$cutoff
+[1] 1
+
+$go
+[1] TRUE
+
+$kegg
+[1] TRUE
+
+$markers
+[1] "/iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/dge_labeled/out/relabeled_subtypes/high_vs_low/Sst+_high_vs_low.csv"
+
+$outdir
+[1] "/iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/goea/clusterProfiler/relabeled_subtypes/high_vs_low/kegg_gsea_avg_logFC/results"
+
+$padjust
+[1] "fdr"
+
+$zscore
+[1] FALSE
+
+saving gobp results to /iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/goea/clusterProfiler/relabeled_subtypes/high_vs_low/kegg_gsea_avg_logFC/results/Sst+_gobp.rds
+saving gobp table to /iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/goea/clusterProfiler/relabeled_subtypes/high_vs_low/kegg_gsea_avg_logFC/results/Sst+_gobp.txt
+saving kegg results to /iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/goea/clusterProfiler/relabeled_subtypes/high_vs_low/kegg_gsea_avg_logFC/results/Sst+_kegg.rds
+saving kegg table to /iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/goea/clusterProfiler/relabeled_subtypes/high_vs_low/kegg_gsea_avg_logFC/results/Sst+_kegg.txt

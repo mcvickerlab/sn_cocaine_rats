@@ -1,0 +1,598 @@
+running GSEA on Astrocytes
+$celltype
+[1] "Astrocytes"
+
+$cutoff
+[1] 1
+
+$go
+[1] TRUE
+
+$kegg
+[1] TRUE
+
+$markers
+[1] "/iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/dge_labeled/out/dge-with-batch-percent-sample-covars/MAST/high_vs_low/Astrocytes_high_vs_low.csv"
+
+$outdir
+[1] "/iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/clusterProfiler/dge-with-batch-percent-sample-covars/MAST/high_vs_low/gsea_zscore/results"
+
+$padjust
+[1] "fdr"
+
+$zscore
+[1] TRUE
+
+[1] "markers"
+     gene        p_val avg_log2FC pct.1 pct.2    p_val_adj   celltype
+1    Pld5 1.479222e-53 0.40019973 0.212 0.129 2.558611e-49 Astrocytes
+2    Penk 9.667584e-45 0.18448087 0.366 0.336 1.672202e-40 Astrocytes
+3  Kcnma1 1.498076e-42 0.19531090 0.471 0.447 2.591222e-38 Astrocytes
+4 Fam107a 2.537752e-25 0.15806880 0.333 0.302 4.389549e-21 Astrocytes
+5 Ppp1r1b 1.196369e-21 0.12302447 0.179 0.165 2.069359e-17 Astrocytes
+6   Hdac4 5.985237e-21 0.07378394 0.305 0.304 1.035266e-16 Astrocytes
+         q_val    zscore
+1 2.558611e-49 11.551502
+2 8.361010e-41  5.260605
+3 8.637406e-39  5.576436
+4 1.097387e-21  4.490364
+5 4.138718e-18  3.468385
+6 1.725444e-17  2.032408
+[1] "running GSEA for GO:BP"
+saving gobp results to /iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/clusterProfiler/dge-with-batch-percent-sample-covars/MAST/high_vs_low/gsea_zscore/results/Astrocytes_gobp_zscore.rds
+saving gobp table to /iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/clusterProfiler/dge-with-batch-percent-sample-covars/MAST/high_vs_low/gsea_zscore/results/Astrocytes_gobp_zscore.txt
+[1] "running GSEA for KEGG"
+saving kegg results to /iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/clusterProfiler/dge-with-batch-percent-sample-covars/MAST/high_vs_low/gsea_zscore/results/Astrocytes_kegg_zscore.rds
+saving kegg table to /iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/clusterProfiler/dge-with-batch-percent-sample-covars/MAST/high_vs_low/gsea_zscore/results/Astrocytes_kegg_zscore.txt
+running GSEA on Cck+-Vip+
+$celltype
+[1] "Cck+-Vip+"
+
+$cutoff
+[1] 1
+
+$go
+[1] TRUE
+
+$kegg
+[1] TRUE
+
+$markers
+[1] "/iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/dge_labeled/out/dge-with-batch-percent-sample-covars/MAST/high_vs_low/Cck+-Vip+_high_vs_low.csv"
+
+$outdir
+[1] "/iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/clusterProfiler/dge-with-batch-percent-sample-covars/MAST/high_vs_low/gsea_zscore/results"
+
+$padjust
+[1] "fdr"
+
+$zscore
+[1] TRUE
+
+[1] "markers"
+            gene        p_val avg_log2FC pct.1 pct.2    p_val_adj  celltype
+1         Snhg11 5.533652e-55 -0.2247710 0.997 0.998 9.571558e-51 Cck+/Vip+
+2           Nrgn 3.311865e-38  0.2826334 0.798 0.770 5.728533e-34 Cck+/Vip+
+3 AABR07055162.1 3.282033e-33  0.2591960 0.612 0.545 5.676933e-29 Cck+/Vip+
+4 AABR07059679.2 7.348892e-28 -0.3084309 0.274 0.350 1.271138e-23 Cck+/Vip+
+5         Adarb2 1.250862e-25 -0.1186403 0.325 0.391 2.163616e-21 Cck+/Vip+
+6           Cnr1 3.218199e-23 -0.2935456 0.330 0.422 5.566519e-19 Cck+/Vip+
+         q_val    zscore
+1 9.571558e-51 -4.457159
+2 2.864267e-34  5.488716
+3 1.892311e-29  5.029308
+4 3.177845e-24 -6.097018
+5 4.327232e-22 -2.376841
+6 9.277531e-20 -5.805244
+[1] "running GSEA for GO:BP"
+saving gobp results to /iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/clusterProfiler/dge-with-batch-percent-sample-covars/MAST/high_vs_low/gsea_zscore/results/Cck+-Vip+_gobp_zscore.rds
+saving gobp table to /iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/clusterProfiler/dge-with-batch-percent-sample-covars/MAST/high_vs_low/gsea_zscore/results/Cck+-Vip+_gobp_zscore.txt
+[1] "running GSEA for KEGG"
+saving kegg results to /iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/clusterProfiler/dge-with-batch-percent-sample-covars/MAST/high_vs_low/gsea_zscore/results/Cck+-Vip+_kegg_zscore.rds
+saving kegg table to /iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/clusterProfiler/dge-with-batch-percent-sample-covars/MAST/high_vs_low/gsea_zscore/results/Cck+-Vip+_kegg_zscore.txt
+running GSEA on Chat+
+$celltype
+[1] "Chat+"
+
+$cutoff
+[1] 1
+
+$go
+[1] TRUE
+
+$kegg
+[1] TRUE
+
+$markers
+[1] "/iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/dge_labeled/out/dge-with-batch-percent-sample-covars/MAST/high_vs_low/Chat+_high_vs_low.csv"
+
+$outdir
+[1] "/iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/clusterProfiler/dge-with-batch-percent-sample-covars/MAST/high_vs_low/gsea_zscore/results"
+
+$padjust
+[1] "fdr"
+
+$zscore
+[1] TRUE
+
+[1] "markers"
+    gene        p_val  avg_log2FC pct.1 pct.2    p_val_adj celltype
+1 Snhg11 2.873920e-12 -0.15221635 1.000 1.000 4.971019e-08    Chat+
+2  Cabp4 1.435133e-08  0.24296364 0.501 0.380 2.482350e-04    Chat+
+3   Dbx1 2.782130e-07 -0.02511488 0.042 0.045 4.812250e-03    Chat+
+4 Dcbld2 3.872659e-06 -0.19269321 0.240 0.335 6.698538e-02    Chat+
+5 Mt-nd2 6.168915e-06 -0.43495205 0.563 0.660 1.067037e-01    Chat+
+6 Tmsb4x 7.305718e-06 -0.15488514 0.893 0.907 1.263670e-01    Chat+
+         q_val     zscore
+1 4.971019e-08 -2.6975078
+2 1.241175e-04  4.2514704
+3 1.604083e-03 -0.4625128
+4 1.674634e-02 -3.4092666
+5 2.106117e-02 -7.6692277
+6 2.106117e-02 -2.7444369
+[1] "running GSEA for GO:BP"
+saving gobp results to /iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/clusterProfiler/dge-with-batch-percent-sample-covars/MAST/high_vs_low/gsea_zscore/results/Chat+_gobp_zscore.rds
+saving gobp table to /iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/clusterProfiler/dge-with-batch-percent-sample-covars/MAST/high_vs_low/gsea_zscore/results/Chat+_gobp_zscore.txt
+[1] "running GSEA for KEGG"
+saving kegg results to /iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/clusterProfiler/dge-with-batch-percent-sample-covars/MAST/high_vs_low/gsea_zscore/results/Chat+_kegg_zscore.rds
+saving kegg table to /iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/clusterProfiler/dge-with-batch-percent-sample-covars/MAST/high_vs_low/gsea_zscore/results/Chat+_kegg_zscore.txt
+running GSEA on Endothelial
+$celltype
+[1] "Endothelial"
+
+$cutoff
+[1] 1
+
+$go
+[1] TRUE
+
+$kegg
+[1] TRUE
+
+$markers
+[1] "/iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/dge_labeled/out/dge-with-batch-percent-sample-covars/MAST/high_vs_low/Endothelial_high_vs_low.csv"
+
+$outdir
+[1] "/iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/clusterProfiler/dge-with-batch-percent-sample-covars/MAST/high_vs_low/gsea_zscore/results"
+
+$padjust
+[1] "fdr"
+
+$zscore
+[1] TRUE
+
+[1] "markers"
+        gene        p_val  avg_log2FC pct.1 pct.2 p_val_adj    celltype q_val
+1       Per2 0.0001397558 -0.30695070 0.104 0.178         1 Endothelial     1
+2  Serpinb6b 0.0001466380  0.31968496 0.036 0.000         1 Endothelial     1
+3 RGD1562608 0.0001935422 -0.02122745 0.118 0.157         1 Endothelial     1
+4       Cblb 0.0003261635 -0.22529095 0.149 0.211         1 Endothelial     1
+5     Dhcr24 0.0003942518 -0.09999991 0.086 0.145         1 Endothelial     1
+6      Tra2b 0.0005362227 -0.33367731 0.140 0.260         1 Endothelial     1
+      zscore
+1 -1.9868615
+2  2.0638611
+3 -0.1398782
+4 -1.4589934
+5 -0.6490822
+6 -2.1596287
+[1] "running GSEA for GO:BP"
+saving gobp results to /iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/clusterProfiler/dge-with-batch-percent-sample-covars/MAST/high_vs_low/gsea_zscore/results/Endothelial_gobp_zscore.rds
+saving gobp table to /iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/clusterProfiler/dge-with-batch-percent-sample-covars/MAST/high_vs_low/gsea_zscore/results/Endothelial_gobp_zscore.txt
+[1] "running GSEA for KEGG"
+saving kegg results to /iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/clusterProfiler/dge-with-batch-percent-sample-covars/MAST/high_vs_low/gsea_zscore/results/Endothelial_kegg_zscore.rds
+saving kegg table to /iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/clusterProfiler/dge-with-batch-percent-sample-covars/MAST/high_vs_low/gsea_zscore/results/Endothelial_kegg_zscore.txt
+running GSEA on ExNeuron
+$celltype
+[1] "ExNeuron"
+
+$cutoff
+[1] 1
+
+$go
+[1] TRUE
+
+$kegg
+[1] TRUE
+
+$markers
+[1] "/iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/dge_labeled/out/dge-with-batch-percent-sample-covars/MAST/high_vs_low/ExNeuron_high_vs_low.csv"
+
+$outdir
+[1] "/iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/clusterProfiler/dge-with-batch-percent-sample-covars/MAST/high_vs_low/gsea_zscore/results"
+
+$padjust
+[1] "fdr"
+
+$zscore
+[1] TRUE
+
+[1] "markers"
+            gene         p_val   avg_log2FC pct.1 pct.2     p_val_adj celltype
+1         Snhg11 3.454415e-170 -0.036764233 0.978 0.976 5.975101e-166 ExNeuron
+2 AABR07054400.1 2.529782e-112  0.208286249 0.457 0.413 4.375763e-108 ExNeuron
+3 AABR07055162.1 1.619086e-111 -0.001011656 0.562 0.581 2.800533e-107 ExNeuron
+4            Ak2 1.079539e-104 -0.400242342 0.830 0.832 1.867278e-100 ExNeuron
+5           Dbx1  4.450062e-96 -0.104874386 0.031 0.076  7.697272e-92 ExNeuron
+6           Bdh1  5.931752e-87 -0.185909189 0.317 0.415  1.026015e-82 ExNeuron
+          q_val      zscore
+1 5.975101e-166  -1.0578028
+2 2.187882e-108   5.9366491
+3 9.335111e-108  -0.0373205
+4 4.668195e-101 -11.4325228
+5  1.539454e-92  -3.0018642
+6  1.710025e-83  -5.3148326
+[1] "running GSEA for GO:BP"
+saving gobp results to /iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/clusterProfiler/dge-with-batch-percent-sample-covars/MAST/high_vs_low/gsea_zscore/results/ExNeuron_gobp_zscore.rds
+saving gobp table to /iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/clusterProfiler/dge-with-batch-percent-sample-covars/MAST/high_vs_low/gsea_zscore/results/ExNeuron_gobp_zscore.txt
+[1] "running GSEA for KEGG"
+saving kegg results to /iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/clusterProfiler/dge-with-batch-percent-sample-covars/MAST/high_vs_low/gsea_zscore/results/ExNeuron_kegg_zscore.rds
+saving kegg table to /iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/clusterProfiler/dge-with-batch-percent-sample-covars/MAST/high_vs_low/gsea_zscore/results/ExNeuron_kegg_zscore.txt
+running GSEA on InhNeuron
+$celltype
+[1] "InhNeuron"
+
+$cutoff
+[1] 1
+
+$go
+[1] TRUE
+
+$kegg
+[1] TRUE
+
+$markers
+[1] "/iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/dge_labeled/out/dge-with-batch-percent-sample-covars/MAST/high_vs_low/InhNeuron_high_vs_low.csv"
+
+$outdir
+[1] "/iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/clusterProfiler/dge-with-batch-percent-sample-covars/MAST/high_vs_low/gsea_zscore/results"
+
+$padjust
+[1] "fdr"
+
+$zscore
+[1] TRUE
+
+[1] "markers"
+        gene         p_val   avg_log2FC pct.1 pct.2     p_val_adj  celltype
+1     Snhg11 3.580789e-279 -0.181644199 0.971 0.982 6.193691e-275 InhNeuron
+2    Ppp1r1b 8.671678e-176  0.238210996 0.290 0.244 1.499940e-171 InhNeuron
+3     Pde10a 9.144760e-152  0.129071122 0.640 0.622 1.581769e-147 InhNeuron
+4      Srsf7 1.429846e-151 -0.143919550 0.732 0.759 2.473204e-147 InhNeuron
+5 AC134224.3 5.507022e-142 -0.002532578 1.000 1.000 9.525496e-138 InhNeuron
+6       Dbx1 2.992284e-132 -0.028761582 0.024 0.031 5.175754e-128 InhNeuron
+          q_val     zscore
+1 6.193691e-275 -8.3542002
+2 7.499701e-172 10.8777944
+3 5.272564e-148  5.8785054
+4 6.183010e-148 -6.6261752
+5 1.905099e-138 -0.1497674
+6 8.626256e-129 -1.3512199
+[1] "running GSEA for GO:BP"
+saving gobp results to /iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/clusterProfiler/dge-with-batch-percent-sample-covars/MAST/high_vs_low/gsea_zscore/results/InhNeuron_gobp_zscore.rds
+saving gobp table to /iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/clusterProfiler/dge-with-batch-percent-sample-covars/MAST/high_vs_low/gsea_zscore/results/InhNeuron_gobp_zscore.txt
+[1] "running GSEA for KEGG"
+saving kegg results to /iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/clusterProfiler/dge-with-batch-percent-sample-covars/MAST/high_vs_low/gsea_zscore/results/InhNeuron_kegg_zscore.rds
+saving kegg table to /iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/clusterProfiler/dge-with-batch-percent-sample-covars/MAST/high_vs_low/gsea_zscore/results/InhNeuron_kegg_zscore.txt
+running GSEA on Microglia
+$celltype
+[1] "Microglia"
+
+$cutoff
+[1] 1
+
+$go
+[1] TRUE
+
+$kegg
+[1] TRUE
+
+$markers
+[1] "/iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/dge_labeled/out/dge-with-batch-percent-sample-covars/MAST/high_vs_low/Microglia_high_vs_low.csv"
+
+$outdir
+[1] "/iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/clusterProfiler/dge-with-batch-percent-sample-covars/MAST/high_vs_low/gsea_zscore/results"
+
+$padjust
+[1] "fdr"
+
+$zscore
+[1] TRUE
+
+[1] "markers"
+    gene        p_val  avg_log2FC pct.1 pct.2  p_val_adj  celltype      q_val
+1   Penk 4.027877e-06 -0.03808439 0.352 0.372 0.06967019 Microglia 0.06967019
+2  Alg14 2.388624e-05  0.10892050 0.075 0.063 0.41316031 Microglia 0.19215054
+3 Akr1d1 3.332668e-05  0.32375946 0.088 0.056 0.57645163 Microglia 0.19215054
+4    Cbl 4.903966e-05 -0.22982663 0.229 0.261 0.84823897 Microglia 0.21205974
+5  Dmtf1 6.831421e-05 -0.21222686 0.275 0.321 1.00000000 Microglia 0.23632618
+6 Ino80e 1.544261e-04  0.06971284 0.042 0.037 1.00000000 Microglia 0.40415128
+      zscore
+1 -0.7585426
+2  1.9279606
+3  5.8541261
+4 -4.2626172
+5 -3.9409829
+6  1.2114436
+[1] "running GSEA for GO:BP"
+saving gobp results to /iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/clusterProfiler/dge-with-batch-percent-sample-covars/MAST/high_vs_low/gsea_zscore/results/Microglia_gobp_zscore.rds
+saving gobp table to /iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/clusterProfiler/dge-with-batch-percent-sample-covars/MAST/high_vs_low/gsea_zscore/results/Microglia_gobp_zscore.txt
+[1] "running GSEA for KEGG"
+saving kegg results to /iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/clusterProfiler/dge-with-batch-percent-sample-covars/MAST/high_vs_low/gsea_zscore/results/Microglia_kegg_zscore.rds
+saving kegg table to /iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/clusterProfiler/dge-with-batch-percent-sample-covars/MAST/high_vs_low/gsea_zscore/results/Microglia_kegg_zscore.txt
+running GSEA on Nos1+
+$celltype
+[1] "Nos1+"
+
+$cutoff
+[1] 1
+
+$go
+[1] TRUE
+
+$kegg
+[1] TRUE
+
+$markers
+[1] "/iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/dge_labeled/out/dge-with-batch-percent-sample-covars/MAST/high_vs_low/Nos1+_high_vs_low.csv"
+
+$outdir
+[1] "/iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/clusterProfiler/dge-with-batch-percent-sample-covars/MAST/high_vs_low/gsea_zscore/results"
+
+$padjust
+[1] "fdr"
+
+$zscore
+[1] TRUE
+
+[1] "markers"
+            gene        p_val  avg_log2FC pct.1 pct.2    p_val_adj celltype
+1         Snhg11 1.332038e-31 -0.20965939 0.992 0.995 2.304026e-27    Nos1+
+2 AABR07054400.1 4.124706e-13  0.46531736 0.400 0.278 7.134503e-09    Nos1+
+3          Ier5l 4.582984e-12 -0.13410915 0.246 0.297 7.927188e-08    Nos1+
+4          Oprd1 2.055325e-10 -0.21603987 0.336 0.407 3.555095e-06    Nos1+
+5           Zeb2 4.950997e-10 -0.12657355 0.301 0.358 8.563739e-06    Nos1+
+6 AABR07033882.1 5.740292e-10  0.06173312 0.642 0.631 9.928983e-06    Nos1+
+         q_val    zscore
+1 2.304026e-27 -4.404356
+2 3.567252e-09  9.673905
+3 2.642396e-08 -2.828574
+4 8.887738e-07 -4.537436
+5 1.654831e-06 -2.671401
+6 1.654831e-06  1.256187
+[1] "running GSEA for GO:BP"
+saving gobp results to /iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/clusterProfiler/dge-with-batch-percent-sample-covars/MAST/high_vs_low/gsea_zscore/results/Nos1+_gobp_zscore.rds
+saving gobp table to /iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/clusterProfiler/dge-with-batch-percent-sample-covars/MAST/high_vs_low/gsea_zscore/results/Nos1+_gobp_zscore.txt
+[1] "running GSEA for KEGG"
+saving kegg results to /iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/clusterProfiler/dge-with-batch-percent-sample-covars/MAST/high_vs_low/gsea_zscore/results/Nos1+_kegg_zscore.rds
+saving kegg table to /iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/clusterProfiler/dge-with-batch-percent-sample-covars/MAST/high_vs_low/gsea_zscore/results/Nos1+_kegg_zscore.txt
+running GSEA on Oligodendrocytes
+$celltype
+[1] "Oligodendrocytes"
+
+$cutoff
+[1] 1
+
+$go
+[1] TRUE
+
+$kegg
+[1] TRUE
+
+$markers
+[1] "/iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/dge_labeled/out/dge-with-batch-percent-sample-covars/MAST/high_vs_low/Oligodendrocytes_high_vs_low.csv"
+
+$outdir
+[1] "/iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/clusterProfiler/dge-with-batch-percent-sample-covars/MAST/high_vs_low/gsea_zscore/results"
+
+$padjust
+[1] "fdr"
+
+$zscore
+[1] TRUE
+
+[1] "markers"
+     gene        p_val   avg_log2FC pct.1 pct.2    p_val_adj         celltype
+1     Mbp 9.133865e-24  0.056443803 0.979 0.978 1.579885e-19 Oligodendrocytes
+2   Edil3 1.836930e-16 -0.004772058 0.844 0.848 3.177337e-12 Oligodendrocytes
+3    Penk 2.209437e-10  0.048532393 0.352 0.355 3.821663e-06 Oligodendrocytes
+4 Ppp1r1b 1.370011e-08 -0.026872916 0.074 0.082 2.369708e-04 Oligodendrocytes
+5   Asxl1 3.360521e-08 -0.054576753 0.103 0.112 5.812693e-04 Oligodendrocytes
+6    Syt1 3.699902e-08  0.118569179 0.230 0.214 6.399721e-04 Oligodendrocytes
+         q_val     zscore
+1 1.579885e-19  1.5556577
+2 1.588669e-12 -0.2835313
+3 1.273888e-06  1.3179648
+4 5.924270e-05 -0.9475366
+5 1.066620e-04 -1.7798796
+6 1.066620e-04  3.4221725
+[1] "running GSEA for GO:BP"
+saving gobp results to /iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/clusterProfiler/dge-with-batch-percent-sample-covars/MAST/high_vs_low/gsea_zscore/results/Oligodendrocytes_gobp_zscore.rds
+saving gobp table to /iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/clusterProfiler/dge-with-batch-percent-sample-covars/MAST/high_vs_low/gsea_zscore/results/Oligodendrocytes_gobp_zscore.txt
+[1] "running GSEA for KEGG"
+saving kegg results to /iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/clusterProfiler/dge-with-batch-percent-sample-covars/MAST/high_vs_low/gsea_zscore/results/Oligodendrocytes_kegg_zscore.rds
+saving kegg table to /iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/clusterProfiler/dge-with-batch-percent-sample-covars/MAST/high_vs_low/gsea_zscore/results/Oligodendrocytes_kegg_zscore.txt
+running GSEA on OPC
+$celltype
+[1] "OPC"
+
+$cutoff
+[1] 1
+
+$go
+[1] TRUE
+
+$kegg
+[1] TRUE
+
+$markers
+[1] "/iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/dge_labeled/out/dge-with-batch-percent-sample-covars/MAST/high_vs_low/OPC_high_vs_low.csv"
+
+$outdir
+[1] "/iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/clusterProfiler/dge-with-batch-percent-sample-covars/MAST/high_vs_low/gsea_zscore/results"
+
+$padjust
+[1] "fdr"
+
+$zscore
+[1] TRUE
+
+[1] "markers"
+   gene        p_val    avg_log2FC pct.1 pct.2    p_val_adj celltype
+1  Apoe 1.695758e-13 -0.1196873121 0.974 0.983 2.933152e-09      OPC
+2 Mfge8 7.953237e-07 -0.1044663107 0.309 0.346 1.375671e-02      OPC
+3  Penk 1.218369e-06  0.0783891203 0.356 0.346 2.107413e-02      OPC
+4 Car10 1.643974e-06 -0.0009395024 0.215 0.222 2.843581e-02      OPC
+5  Tac1 2.760082e-06  0.0711221300 0.074 0.059 4.774114e-02      OPC
+6 Gpnmb 4.633987e-06 -0.2454082326 0.138 0.182 8.015408e-02      OPC
+         q_val      zscore
+1 2.933152e-09 -3.00778068
+2 6.878357e-03 -2.63361892
+3 7.024711e-03  1.86132248
+4 7.108954e-03 -0.08872904
+5 9.548228e-03  1.68268575
+6 1.253940e-02 -6.09824491
+[1] "running GSEA for GO:BP"
+saving gobp results to /iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/clusterProfiler/dge-with-batch-percent-sample-covars/MAST/high_vs_low/gsea_zscore/results/OPC_gobp_zscore.rds
+saving gobp table to /iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/clusterProfiler/dge-with-batch-percent-sample-covars/MAST/high_vs_low/gsea_zscore/results/OPC_gobp_zscore.txt
+[1] "running GSEA for KEGG"
+saving kegg results to /iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/clusterProfiler/dge-with-batch-percent-sample-covars/MAST/high_vs_low/gsea_zscore/results/OPC_kegg_zscore.rds
+saving kegg table to /iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/clusterProfiler/dge-with-batch-percent-sample-covars/MAST/high_vs_low/gsea_zscore/results/OPC_kegg_zscore.txt
+running GSEA on Pvalb+
+$celltype
+[1] "Pvalb+"
+
+$cutoff
+[1] 1
+
+$go
+[1] TRUE
+
+$kegg
+[1] TRUE
+
+$markers
+[1] "/iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/dge_labeled/out/dge-with-batch-percent-sample-covars/MAST/high_vs_low/Pvalb+_high_vs_low.csv"
+
+$outdir
+[1] "/iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/clusterProfiler/dge-with-batch-percent-sample-covars/MAST/high_vs_low/gsea_zscore/results"
+
+$padjust
+[1] "fdr"
+
+$zscore
+[1] TRUE
+
+[1] "markers"
+     gene        p_val avg_log2FC pct.1 pct.2 p_val_adj celltype    q_val
+1   Unc79 1.493195e-05  0.1689045 0.664 0.624  0.258278   Pvalb+ 0.258278
+2  Actr1a 2.522447e-04 -0.1776898 0.216 0.325  1.000000   Pvalb+ 1.000000
+3    Grk4 2.802948e-04  0.1783470 0.344 0.280  1.000000   Pvalb+ 1.000000
+4     Gaa 4.450532e-04 -0.1434584 0.448 0.554  1.000000   Pvalb+ 1.000000
+5   Sap18 5.613073e-04  0.1172466 0.576 0.541  1.000000   Pvalb+ 1.000000
+6 Selenoi 7.089718e-04  0.2357103 0.232 0.140  1.000000   Pvalb+ 1.000000
+     zscore
+1  1.613061
+2 -1.810775
+3  1.706340
+4 -1.472620
+5  1.102758
+6  2.273004
+[1] "running GSEA for GO:BP"
+saving gobp results to /iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/clusterProfiler/dge-with-batch-percent-sample-covars/MAST/high_vs_low/gsea_zscore/results/Pvalb+_gobp_zscore.rds
+saving gobp table to /iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/clusterProfiler/dge-with-batch-percent-sample-covars/MAST/high_vs_low/gsea_zscore/results/Pvalb+_gobp_zscore.txt
+[1] "running GSEA for KEGG"
+saving kegg results to /iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/clusterProfiler/dge-with-batch-percent-sample-covars/MAST/high_vs_low/gsea_zscore/results/Pvalb+_kegg_zscore.rds
+saving kegg table to /iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/clusterProfiler/dge-with-batch-percent-sample-covars/MAST/high_vs_low/gsea_zscore/results/Pvalb+_kegg_zscore.txt
+running GSEA on Reln+
+$celltype
+[1] "Reln+"
+
+$cutoff
+[1] 1
+
+$go
+[1] TRUE
+
+$kegg
+[1] TRUE
+
+$markers
+[1] "/iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/dge_labeled/out/dge-with-batch-percent-sample-covars/MAST/high_vs_low/Reln+_high_vs_low.csv"
+
+$outdir
+[1] "/iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/clusterProfiler/dge-with-batch-percent-sample-covars/MAST/high_vs_low/gsea_zscore/results"
+
+$padjust
+[1] "fdr"
+
+$zscore
+[1] TRUE
+
+[1] "markers"
+       gene        p_val avg_log2FC pct.1 pct.2    p_val_adj celltype
+1    Snhg11 1.274317e-08 -0.1280236 0.987 0.994 0.0002204186    Reln+
+2    Pde10a 2.236821e-08  0.1615097 0.682 0.646 0.0003869029    Reln+
+3     Srsf7 6.974532e-06 -0.1487331 0.675 0.704 0.1206384818    Reln+
+4    Zfp566 2.714889e-05 -0.1683214 0.192 0.254 0.4695943431    Reln+
+5      Pcp4 4.671480e-05  0.2328209 0.282 0.212 0.8080259107    Reln+
+6 RT1-T24-1 7.990759e-05 -0.3293778 0.195 0.309 1.0000000000    Reln+
+         q_val    zscore
+1 0.0001934514 -1.778009
+2 0.0001934514  2.168722
+3 0.0402128273 -2.060308
+4 0.1173985858 -2.327323
+5 0.1616051821  3.140790
+6 0.2303602650 -4.522740
+[1] "running GSEA for GO:BP"
+saving gobp results to /iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/clusterProfiler/dge-with-batch-percent-sample-covars/MAST/high_vs_low/gsea_zscore/results/Reln+_gobp_zscore.rds
+saving gobp table to /iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/clusterProfiler/dge-with-batch-percent-sample-covars/MAST/high_vs_low/gsea_zscore/results/Reln+_gobp_zscore.txt
+[1] "running GSEA for KEGG"
+saving kegg results to /iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/clusterProfiler/dge-with-batch-percent-sample-covars/MAST/high_vs_low/gsea_zscore/results/Reln+_kegg_zscore.rds
+saving kegg table to /iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/clusterProfiler/dge-with-batch-percent-sample-covars/MAST/high_vs_low/gsea_zscore/results/Reln+_kegg_zscore.txt
+running GSEA on Sst+
+$celltype
+[1] "Sst+"
+
+$cutoff
+[1] 1
+
+$go
+[1] TRUE
+
+$kegg
+[1] TRUE
+
+$markers
+[1] "/iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/dge_labeled/out/dge-with-batch-percent-sample-covars/MAST/high_vs_low/Sst+_high_vs_low.csv"
+
+$outdir
+[1] "/iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/clusterProfiler/dge-with-batch-percent-sample-covars/MAST/high_vs_low/gsea_zscore/results"
+
+$padjust
+[1] "fdr"
+
+$zscore
+[1] TRUE
+
+[1] "markers"
+            gene        p_val  avg_log2FC pct.1 pct.2    p_val_adj celltype
+1         Snhg11 1.713857e-47 -0.07848993 0.996 0.996 2.964459e-43     Sst+
+2           Penk 3.831033e-30  0.20249811 0.372 0.325 6.626538e-26     Sst+
+3 AABR07055162.1 2.150169e-28 -0.02091855 0.494 0.523 3.719147e-24     Sst+
+4          Srsf7 2.871172e-20 -0.04902935 0.742 0.769 4.966266e-16     Sst+
+5           Dbx1 7.236817e-16 -0.07048199 0.022 0.043 1.251752e-11     Sst+
+6           Pcp4 1.637275e-15  0.21350092 0.299 0.256 2.831995e-11     Sst+
+         q_val     zscore
+1 2.964459e-43 -2.0712675
+2 3.313269e-26  5.1050093
+3 1.239716e-24 -0.6009266
+4 1.241567e-16 -1.3188608
+5 2.503504e-12 -1.8667491
+6 4.479744e-12  5.3860151
+[1] "running GSEA for GO:BP"
+saving gobp results to /iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/clusterProfiler/dge-with-batch-percent-sample-covars/MAST/high_vs_low/gsea_zscore/results/Sst+_gobp_zscore.rds
+saving gobp table to /iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/clusterProfiler/dge-with-batch-percent-sample-covars/MAST/high_vs_low/gsea_zscore/results/Sst+_gobp_zscore.txt
+[1] "running GSEA for KEGG"
+saving kegg results to /iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/clusterProfiler/dge-with-batch-percent-sample-covars/MAST/high_vs_low/gsea_zscore/results/Sst+_kegg_zscore.rds
+saving kegg table to /iblm/netapp/home/jezhou/rat_snrnaseq_pipeline/clusterProfiler/dge-with-batch-percent-sample-covars/MAST/high_vs_low/gsea_zscore/results/Sst+_kegg_zscore.txt

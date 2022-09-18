@@ -1,0 +1,286 @@
+"""
+analyze results of snATAC-seq integration
+"""
+configfile: "config.yml"
+
+celltypes = []
+with open(config['celltypes']) as fh:
+	celltypes = fh.read().splitlines()
+
+# ruleorder: dapeaks > permutation_test > plot_perm_qq
+
+rule all:
+	input: 
+		expand(config['out'] + "/{name}/da_peaks/{analysis}/{test}/{celltype}_dapeaks.csv", 
+			name = config['name'], analysis = config['analyses'], 
+			test = config['test'], celltype = celltypes),
+		expand(config['out'] + "/chkpts/{name}-{analysis}-{test}.{celltype}-perm.chkpt",
+			name = config['name'], analysis = config['analyses'],
+			test = config['test'], celltype = celltypes),
+		expand(config['out'] + "/chkpts/{name}-{analysis}-{test}.{celltype}-qq.chkpt",
+			name = config['name'], analysis = config['analyses'],
+			test = config['test'], celltype = celltypes),
+		expand(config['out'] + "/chkpts/{name}-{analysis}-{test}.{celltype}-find_motifs.chkpt",
+			name = config['name'], analysis = config['analyses'],
+			test = config['test'], celltype = celltypes),
+		expand(config['out'] + "/chkpts/{name}-{analysis}-{test}.{celltype}-pick_bg_peaks.chkpt",
+			name = config['name'], analysis = config['analyses'],
+			test = config['test'], celltype = celltypes),
+		expand(config['out'] + "/chkpts/{name}-{analysis}-{test}.{celltype}-get_fg_seqs.chkpt",
+			name = config['name'], analysis = config['analyses'],
+			test = config['test'], celltype = celltypes),
+		expand(config['out'] + "/chkpts/{name}-{analysis}-{test}.{celltype}-get_fg_seqs_pos.chkpt",
+			name = config['name'], analysis = config['analyses'],
+			test = config['test'], celltype = celltypes),
+		expand(config['out'] + "/chkpts/{name}-{analysis}-{test}.{celltype}-get_fg_seqs_neg.chkpt",
+			name = config['name'], analysis = config['analyses'],
+			test = config['test'], celltype = celltypes),
+		expand(config['out'] + "/chkpts/{name}-{analysis}-{test}.{celltype}-get_bg_seqs.chkpt",
+			name = config['name'], analysis = config['analyses'],
+			test = config['test'], celltype = celltypes),
+		expand(config['out'] + "/chkpts/{name}-{analysis}-{test}.{celltype}-get_bg_seqs_from_dapeaks.chkpt",
+			name = config['name'], analysis = config['analyses'],
+			test = config['test'], celltype = celltypes),
+		# expand(config['out'] + "/chkpts/{name}-{analysis}-{test}.{celltype}-ame.chkpt",
+		# 	name = config['name'], analysis = config['analyses'],
+		# 	test = config['test'], celltype = celltypes),
+		# expand(config['out'] + "/chkpts/{name}-{analysis}-{test}.{celltype}-ame-with-da-bg.chkpt",
+		# 	name = config['name'], analysis = config['analyses'],
+		# 	test = config['test'], celltype = celltypes),
+		expand(config['out'] + "/{name}/da_peaks/{analysis}/{test}/report.txt",
+			name = config['name'], analysis = config['analyses'],
+			test = config['test'])
+
+if config['prefilter']:
+	"""
+	find differentially accessible peaks between phenotypes within each cell type
+	"""
+	print("prefiltering peaks")
+	rule dapeaks:
+		input: config['robj']
+		output: 
+			res = config['out'] + "/{name}/da_peaks/{analysis}/{test}/{celltype}_dapeaks.csv"
+			# done = temp(touch(config['out'] + "/{name}/da_peaks/{analysis}/{test}/{celltype}.done"))
+		params: 
+			outdir = config['out'] + "/{name}/da_peaks/{analysis}/{test}",
+			opts = lambda wildcards: config['params'][wildcards.analysis],
+			covars = config['covars']
+		conda: "env.yml"
+		shell:
+			"Rscript scripts/find_dapeaks.R --rds {input} "
+			"--test {config[test]} --prefilter --outfh {output.res} "
+			"--covars {params.covars} --celltype {wildcards.celltype} "
+			"{params.opts}"
+else:
+	rule dapeaks:
+		input: config['robj']
+		output: 
+			res = config['out'] + "/{name}/da_peaks/{analysis}/{test}/{celltype}_dapeaks.csv"
+			# done = temp(touch(config['out'] + "/{name}/da_peaks/{analysis}/{test}/{celltype}.done"))
+		params: 
+			outdir = config['out'] + "/{name}/da_peaks/{analysis}/{test}",
+			opts = lambda wildcards: config['params'][wildcards.analysis],
+			covars = config['covars']
+		conda: "env.yml"
+		shell:
+			"Rscript scripts/find_dapeaks.R --rds {input} "
+			"--test {config[test]} --outfh {output.res} "
+			"--covars {params.covars} --celltype {wildcards.celltype} "
+			"{params.opts}"
+
+rule permutation_test:
+	"""
+	run permutation test for differential analysis
+	"""
+	input: 
+		robj = config['robj'],
+		chkpt = rules.dapeaks.output.res
+	# output: config['out'] + "/{name}/da_peaks/{analysis}/{test}/{celltype}.perm.csv"
+	output: touch(config['out'] + "/chkpts/{name}-{analysis}-{test}.{celltype}-perm.chkpt")
+	params: 
+		outdir = config['out'] + "/{name}/da_peaks/{analysis}/{test}",
+		opts = lambda wildcards: config['params'][wildcards.analysis],
+		covars = config['covars'],
+		outfh = config['out'] + "/{name}/da_peaks/{analysis}/{test}/{celltype}-perm.csv"
+	conda: "env.yml"
+	shell:
+		"Rscript scripts/find_dapeaks.R --rds {input.robj} "
+		"--test {config[test]} --prefilter --outfh {params.outfh} "
+		"--covars {params.covars} --celltype {wildcards.celltype} "
+		"{params.opts} --permute"
+
+rule plot_perm_qq:
+	"""
+	plot qqplot comparing obs vs. perm
+	"""
+	input: 
+		obs = rules.dapeaks.output.res,
+		perm = rules.permutation_test.output[0]
+	# output: config['out'] + "/{name}/da_peaks/{analysis}/{test}/{celltype}.qq.png"
+	output: touch(config['out'] + "/chkpts/{name}-{analysis}-{test}.{celltype}-qq.chkpt")
+	params: 
+		outfh = config['out'] + "/{name}/da_peaks/{analysis}/{test}/{celltype}-qq.png",
+		perm_in = config['out'] + "/{name}/da_peaks/{analysis}/{test}/{celltype}-perm.csv"
+	conda: "env.yml"
+	shell:
+		"""
+		Rscript scripts/perm_test_qq.R --obs {input.obs} --perm {params.perm_in} \
+		--celltype {wildcards.celltype} --outfh {params.outfh}
+		"""
+
+rule find_motifs:
+	"""
+	run FindMotifs on significant DA peaks
+	"""
+	input: 
+		dapeaks = rules.dapeaks.output.res,
+		rds = config['robj']
+	output: touch(config['out'] + "/chkpts/{name}-{analysis}-{test}.{celltype}-find_motifs.chkpt")
+	params: 
+		motifs = config['out'] + "/{name}/da_peaks/{analysis}/{test}/{celltype}-motifs.csv",
+		bg = config['out'] + "/{name}/da_peaks/{analysis}/{test}/{celltype}-bg.txt"
+	conda: "env.yml"
+	shell:
+		"""
+		Rscript scripts/find_motifs.R --rds {input.rds} \
+		--celltype {wildcards.celltype} --outfh {params.motifs} \
+		--dapeaks {input.dapeaks} --bg {params.bg}
+		"""
+
+rule get_fg_seqs:
+	input: 
+		chkpt = rules.dapeaks.output.res
+	output: touch(config['out'] + "/chkpts/{name}-{analysis}-{test}.{celltype}-get_fg_seqs.chkpt")
+	params: 
+		fasta = config['fasta'],
+		seqs = config['out'] + "/{name}/da_peaks/{analysis}/{test}/{celltype}-fg_seqs.fa",
+		peaks = config['out'] + "/{name}/da_peaks/{analysis}/{test}/{celltype}_dapeaks.csv"
+	conda: "env.yml"
+	shell:
+		"""
+		python scripts/get_seqs.py --fasta {params.fasta} \
+		--coords {params.peaks} --out {params.seqs}
+		"""
+
+rule get_fg_seqs_pos:
+	input:
+		chkpt = rules.dapeaks.output.res 
+	output: touch(config['out'] + "/chkpts/{name}-{analysis}-{test}.{celltype}-get_fg_seqs_pos.chkpt")
+	params:
+		fasta  = config['fasta'],
+		seqs = config['out'] + "/{name}/da_peaks/{analysis}/{test}/{celltype}-fg_seqs_pos.fa",
+		peaks = config['out'] + "/{name}/da_peaks/{analysis}/{test}/{celltype}_dapeaks.csv"
+	conda: "env.yml"
+	shell:
+		"""
+		python scripts/get_seqs.py --fasta {params.fasta} \
+		--coords {params.peaks} --out {params.seqs} --pos		
+		"""
+
+
+rule get_fg_seqs_neg:
+	input:
+		chkpt = rules.dapeaks.output.res 
+	output: touch(config['out'] + "/chkpts/{name}-{analysis}-{test}.{celltype}-get_fg_seqs_neg.chkpt")
+	params:
+		fasta  = config['fasta'],
+		seqs = config['out'] + "/{name}/da_peaks/{analysis}/{test}/{celltype}-fg_seqs_neg.fa",
+		peaks = config['out'] + "/{name}/da_peaks/{analysis}/{test}/{celltype}_dapeaks.csv"
+	conda: "env.yml"
+	shell:
+		"""
+		python scripts/get_seqs.py --fasta {params.fasta} \
+		--coords {params.peaks} --out {params.seqs} --neg
+		"""
+
+rule pick_bg_seqs:
+	"""
+	pick bg seqs from da peaks with FDR>50%
+	"""
+	input: rules.dapeaks.output.res 
+	output: touch(config['out'] + "/chkpts/{name}-{analysis}-{test}.{celltype}-pick_bg_peaks.chkpt")
+	params: config['out'] + "/{name}/da_peaks/{analysis}/{test}/{celltype}-bg_peaks_from_dapeaks.txt"
+	conda: "env.yml"
+	shell:
+		"""
+		python scripts/pick_bg_peaks_from_dapeaks.py --coords {input} \
+		--out {params}
+		"""
+
+rule get_bg_seqs_da:
+	"""
+	get seqs for bg peaks selected from non-significant da peaks
+	"""
+	input: 
+		chkpt = rules.find_motifs.output[0]
+	output: touch(config['out'] + "/chkpts/{name}-{analysis}-{test}.{celltype}-get_bg_seqs_from_dapeaks.chkpt")
+	params:
+		fasta = config['fasta'],
+		seqs = config['out'] + "/{name}/da_peaks/{analysis}/{test}/{celltype}-bg_seqs_from_dapeaks.fa",
+		peaks = config['out'] + "/{name}/da_peaks/{analysis}/{test}/{celltype}-bg_peaks_from_dapeaks.txt"	
+	conda: "env.yml"
+	shell:
+		"""
+		python scripts/get_seqs.py --fasta {params.fasta} \
+		--coords {params.peaks} --out {params.seqs} --bg
+		"""
+
+rule get_bg_seqs:
+	input: 
+		chkpt = rules.find_motifs.output[0]
+	output: touch(config['out'] + "/chkpts/{name}-{analysis}-{test}.{celltype}-get_bg_seqs.chkpt")
+	params:
+		fasta = config['fasta'],
+		seqs = config['out'] + "/{name}/da_peaks/{analysis}/{test}/{celltype}-bg_seqs.fa",
+		peaks = config['out'] + "/{name}/da_peaks/{analysis}/{test}/{celltype}-bg.txt"	
+	conda: "env.yml"
+	shell:
+		"""
+		python scripts/get_seqs.py --fasta {params.fasta} \
+		--coords {params.peaks} --out {params.seqs} --bg
+			"""
+# rule ame_da:
+# 	"""
+# 	run AME (MEME suite) with bg peaks selected from non-significant da peaks
+# 	"""
+# 	input:
+# 		fg = config['out'] + "/chkpts/{name}-{analysis}-{test}.{celltype}-get_fg_seqs.chkpt",
+# 		bg = config['out'] + "/chkpts/{name}-{analysis}-{test}.{celltype}-get_bg_seqs_from_dapeaks.chkpt"
+# 	output: touch(config['out'] + "/chkpts/{name}-{analysis}-{test}.{celltype}-ame-with-da-bg.chkpt")
+# 	params:
+# 		outdir = config['out'] + "/{name}/da_peaks/{analysis}/{test}/{celltype}-ame_out_with_da_bg",
+# 		bg = config['out'] + "/{name}/da_peaks/{analysis}/{test}/{celltype}-bg_seqs_from_dapeaks.fa",
+# 		fg = config['out'] + "/{name}/da_peaks/{analysis}/{test}/{celltype}-fg_seqs.fa"
+# 	conda: "env.yml"
+# 	shell:
+# 		"""
+# 		ame --o {params.outdir} --control {params.bg} {params.fg} {config[motifs]}
+# 		"""
+
+# rule ame:
+# 	"""
+# 	run AME (MEME suite)
+# 	"""
+# 	input:
+# 		fg = config['out'] + "/chkpts/{name}-{analysis}-{test}.{celltype}-get_fg_seqs.chkpt",
+# 		bg = config['out'] + "/chkpts/{name}-{analysis}-{test}.{celltype}-get_bg_seqs.chkpt"
+# 	output: touch(config['out'] + "/chkpts/{name}-{analysis}-{test}.{celltype}-ame.chkpt")
+# 	params:
+# 		outdir = config['out'] + "/{name}/da_peaks/{analysis}/{test}/{celltype}-ame_out",
+# 		bg = config['out'] + "/{name}/da_peaks/{analysis}/{test}/{celltype}-bg_seqs.fa",
+# 		fg = config['out'] + "/{name}/da_peaks/{analysis}/{test}/{celltype}-fg_seqs.fa"
+# 	conda: "env.yml"
+# 	shell:
+# 		"""
+# 		ame --o {params.outdir} --control {params.bg} {params.fg} {config[motifs]}
+# 		"""
+
+rule make_report:
+	"""
+	record options used for this analysis
+	"""
+	output: config['out'] + "/{name}/da_peaks/{analysis}/{test}/report.txt"
+	shell:
+		"""
+		cat config.yml > {output}
+		"""
