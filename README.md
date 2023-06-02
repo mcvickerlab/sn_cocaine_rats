@@ -41,4 +41,8 @@ This pipeline contains code used for performing a partitioned heritability analy
 ### [`call_peaks_macs`](https://github.com/mcvickerlab/sn_cocaine_rats/tree/master/atac_analysis/call_peaks_macs)
 This pipeline uses MACS to call peaks on the BAM outputs of `cellranger-atac count` in a cell type-specific manner. Requires a mapping of cell barcodes to cell type annotations. May be useful for downstream analyses. 
 
+### [`chromvar_analysis`](https://github.com/mcvickerlab/sn_cocaine_rats/tree/master/atac_analysis/chromvar_analysis)
+This directory contains code used to perform differential analysis of transcription factors. Notebooks include pipelines for running chromVar analysis, as well as data visualization.
+
+
 **Questions? Contact jlz014 [at] eng [dot] ucsd [dot] edu**
