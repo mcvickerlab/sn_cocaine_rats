@@ -1,0 +1,16 @@
+out: out
+data: /iblm/netapp/data1/jezhou/Telese_Rat_Amygdala/multiome_bla_cea
+
+reference: /iblm/netapp/data1/jezhou/cellranger_rn6_arc_ref/rn6
+sample_ids: [CEA, BLA]
+
+fastq_path: /iblm/netapp/data1/jezhou/Telese_Rat_Amygdala/multiome_bla_cea
+
+sample_names:
+  CEA:
+    GEX: GEX_library_CEA_BLA_FT_11152022_H08_1
+    ATAC: ATAC_library_CEA_BLA_FT_11152022_F08
+  BLA:
+    GEX: GEX_library_CEA_BLA_FT_11152022_A07_2
+    ATAC: ATAC_library_CEA_BLA_FT_11152022_G08
+

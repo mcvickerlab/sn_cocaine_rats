@@ -1,0 +1,41 @@
+configfile: "config.yml"
+
+rule all:
+	input:
+		expand(config['out'] + "/libraries_files/{id}_libraries.csv",
+			id = config['sample_ids']),
+		expand("data/{id}",
+			id = config['sample_ids'])
+
+
+rule make_libraries_csv:
+	params: 
+		fastqs_path = config['fastq_path'],
+		sample_gex = lambda wildcards: config['sample_names'][wildcards.id]['GEX'],
+		sample_atac = lambda wildcards: config['sample_names'][wildcards.id]['ATAC'],
+		outdir = config['out'] + "/libraries_files"
+	output: config['out'] + "/libraries_files/{id}_libraries.csv"
+	conda: "env.yml"
+	shell:
+		"""
+		mkdir -p {params.outdir} &&
+		python scripts/make_libraries_file.py --gex {params.sample_gex} \
+		--atac {params.sample_atac} --fastqs {params.fastqs_path} --out {output}
+		"""
+
+rule cellranger_count:
+	input: rules.make_libraries_csv.output[0]
+	params: 
+		output_dir = config['data'],
+		reference = config['reference'],
+		libraries = "/iblm/netapp/home/jezhou/multiome_cea-vs-bla/out/libraries_files/{id}_libraries.csv"
+	# output: directory(config['data'] + "/{id}")
+	output: directory('data/{id}')
+	conda: "env.yml"
+	shell:
+		"""
+		cd data && 
+		/iblm/netapp/home/jezhou/software/cellranger-arc-2.0.0/cellranger-arc count --id={wildcards.id} \
+		--reference={params.reference} --libraries={params.libraries} \
+		--localcores=16 --localmem=64
+		"""
