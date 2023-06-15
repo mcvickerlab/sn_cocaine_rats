@@ -21,7 +21,7 @@ This directory contains scripts used to run clusterProfiler on the annotated snR
 This directory contains code/pipelines for analysis of snATAC-seq data used in this project.
 
 ### [`filter_rn6.sh`](https://github.com/mcvickerlab/sn_cocaine_rats/blob/master/atac_analysis/filter_rn6.sh)
-This script contains code used to create a custom rn6 reference genome.
+This script contains code used to create a custom rn6 reference genome. The reference genome created here was used for aligning both the snATAC-seq data and the multiome data.
 
 ### [`realign_snatac_fastqs`](https://github.com/mcvickerlab/sn_cocaine_rats/tree/master/atac_analysis/realign_snatac_fastqs)
 This directory contains scripts used to realign snATAC-seq FASTQs to the custom rn6 reference genome using [`cellranger-atac count`](https://support.10xgenomics.com/single-cell-atac/software/pipelines/latest/using/count).
