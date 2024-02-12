@@ -1,0 +1,12 @@
+prefix=/iblm/netapp/home/jezhou/rat_snatacseq_analysis/cts_partition_h2/.snakemake/conda/a59c19f5
+exec_prefix=${prefix}
+libdir=${exec_prefix}/lib
+includedir=${prefix}/include/libpng16
+
+Name: libpng
+Description: Loads and saves PNG files
+Version: 1.6.37
+Requires: zlib
+Libs: -L${libdir} -lpng16
+Libs.private: -lm -lz -lm 
+Cflags: -I${includedir}

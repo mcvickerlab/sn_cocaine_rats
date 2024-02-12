@@ -1,0 +1,11 @@
+prefix=/iblm/netapp/home/jezhou/rat_snatacseq_analysis/cts_partition_h2/.snakemake/conda/a59c19f5
+exec_prefix=${prefix}
+libdir=${exec_prefix}/lib
+includedir=${prefix}/include
+
+Name: XCB XFree86-DRI
+Description: XCB XFree86-DRI Extension
+Version: 1.13
+Requires.private: xcb
+Libs: -L${libdir} -lxcb-xf86dri
+Cflags: -I${includedir}

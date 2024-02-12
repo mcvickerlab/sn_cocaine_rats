@@ -1,0 +1,11 @@
+prefix=/iblm/netapp/home/jezhou/rat_snatacseq_analysis/cts_partition_h2/.snakemake/conda/a59c19f5
+exec_prefix=${prefix}
+libdir=${exec_prefix}/lib
+includedir=${prefix}/include
+
+Name: lcms2
+Description: LCMS Color Management Library
+Version: 2.11
+Libs: -L${libdir} -llcms2
+Libs.private: -lm -lpthread
+Cflags: -I${includedir}

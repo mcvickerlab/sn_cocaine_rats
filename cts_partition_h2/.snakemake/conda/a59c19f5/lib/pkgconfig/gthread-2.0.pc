@@ -1,0 +1,10 @@
+prefix=/iblm/netapp/home/jezhou/rat_snatacseq_analysis/cts_partition_h2/.snakemake/conda/a59c19f5
+libdir=${prefix}/lib
+includedir=${prefix}/include
+
+Name: GThread
+Description: Thread support for GLib
+Version: 2.66.3
+Requires: glib-2.0
+Libs: -L${libdir} -lgthread-2.0 -pthread
+Cflags: -I${includedir} -pthread

@@ -1,0 +1,2 @@
+#!/bin/sh
+exec /iblm/netapp/home/jezhou/rat_snatacseq_analysis/cts_partition_h2/.snakemake/conda/a59c19f5/bin/python -m PyQt5.pyrcc_main ${1+"$@"}

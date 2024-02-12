@@ -1,0 +1,94 @@
+out: out
+annot_dir: ../data/snATAC/ldsc_annot
+
+### LDSC data ###
+ldsc_dir: /iblm/netapp/home/jezhou/ldsc
+
+bfiles: /iblm/netapp/data1/external/LDSC/1000G_EUR_Phase3_plink
+# baseline_dir: /iblm/netapp/home/jezhou/ldsc/files/1000G_EUR_Phase3_baseline
+baseline_dir: /iblm/netapp/data1/external/LDSC/1000G_EUR_Phase3_baseline
+# weights_dir: /iblm/netapp/home/jezhou/ldsc/files/weights_hm3_no_hla
+weights_dir: /iblm/netapp/data1/external/LDSC/weights_hm3_no_hla
+# frq_dir: /iblm/netapp/home/jezhou/ldsc/files/1000G_Phase3_frq
+# hmsnps_dir: /iblm/netapp/home/jezhou/ldsc/files/hapmap3_snps
+hmsnps_dir: /iblm/netapp/data1/external/LDSC/hapmap3_snps
+
+### Cell-type specific LDSC ###
+# celltypes: [InhNeuron,
+# Vip+,
+# ExNeuron,
+# Astrocytes,
+# Sst+,
+# Microglia,
+# Oligodendrocytes,
+# OPC,
+# Reln+,
+# Cck+,
+# Endothelial,
+# #Chat+,
+# Nos1+,
+# Pvalb+]
+celltypes: [InhNeuron,
+ExNeuron,
+Oligodendrocytes,
+Astrocytes,
+OPC,
+Endothelial,
+Microglia]
+
+# samples: [Rat_Amygdala_cocaine_high]
+samples: [Rat_Amygdala__cocaine_low,
+Rat_Amygdala_cocaine_high,
+FTL_452_M1071_933000320186811,
+FTL_453_M964_933000320047166,
+FTL_464_M986_933000320047174,
+FTL_462_M779_933000320045785,
+FTL_457_M1172_933000320187092,
+FTL_452_M1071_933000320186811,
+FTL_456_M985_933000320047161,
+FTL_455_M1085_933000320047651,
+FTL_460_M975_933000320047019,
+FTL_454_M1182_933000320187130,
+ALL_RATS]
+
+bg_liftover: False
+bg_dataset: Honeybadger2
+bg_peaks: /iblm/netapp/data1/external/ENCODE/Honeybadger2/regions_all.bed.gz
+# bg_chain: /iblm/netapp/data1/external/UCSC/liftOver_files/hg19ToHg38.over.chain.gz
+
+fg_peaks_dir: /iblm/netapp/data1/jezhou/Telese_Rat_Amygdala/snATAC/macs2/peaks/from_signac
+# fg_peaks_dir: /iblm/netapp/data1/jezhou/Telese_Rat_Amygdala/snATAC/peaks
+chain: /iblm/netapp/data1/external/UCSC/liftOver_files/rn6ToHg19.over.chain.gz
+# chain: /iblm/netapp/data1/external/UCSC/liftOver_files/rn6ToHg38.over.chain.gz
+
+#### SUMMARY STATS ####
+# sources: [PGC.OPIOID.SUMSTATS,
+# liu_alcohol_tobacco]
+sources: [liu_alcohol_tobacco]
+
+studies: 
+  # PGC.OPIOID.SUMSTATS: 
+  #   ext: 'tbl.gz'
+  #   munge_args: --snp rsID --N-col Total_N --N-cas-col Total_NCase --N-con-col Total_NControl --a1 Allele1 --a2 Allele2 --p P-value --frq Freq1
+  #   names: [opi.DEPvEXP_EUR,
+  #   # opi.DEPvEXP_AFR,
+  #   opi.DEPvUNX_AFR,
+  #   opi.DEPvUNX_EUR,
+  #   opi.EXPvUNX_AFR,
+  #   opi.EXPvUNX_EUR]
+  liu_alcohol_tobacco: 
+    ext: 'txt.gz'
+    munge_args: --a1 REF --a2 ALT --frq AF 
+    names: [AgeofInitiation,
+    AgeOfInitiation.WithoutUKB,
+    CigarettesPerDay,
+    CigarettesPerDay.WithoutUKB,
+    DrinksPerWeek,
+    DrinksPerWeek.WithoutUKB,
+    SmokingCessation,
+    SmokingCessation.WithoutUKB,
+    SmokingInitiation,
+    SmokingInitiation.WithoutUKB]
+
+ukb: True
+log: True

@@ -1,0 +1,16 @@
+#libevent pkg-config source file
+
+prefix=/iblm/netapp/home/jezhou/rat_snatacseq_analysis/cts_partition_h2/.snakemake/conda/a59c19f5
+exec_prefix=${prefix}
+libdir=${exec_prefix}/lib
+includedir=${prefix}/include
+
+Name: libevent_openssl
+Description: libevent_openssl adds openssl-based TLS support to libevent
+Version: 2.1.10-stable
+Requires: libevent
+Conflicts:
+Libs: -L${libdir} -levent_openssl
+Libs.private: -lrt  -L/iblm/netapp/home/jezhou/rat_snatacseq_analysis/cts_partition_h2/.snakemake/conda/a59c19f5/lib -lssl -lcrypto   
+Cflags: -I${includedir} -I/iblm/netapp/home/jezhou/rat_snatacseq_analysis/cts_partition_h2/.snakemake/conda/a59c19f5/include
+

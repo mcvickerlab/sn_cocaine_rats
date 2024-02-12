@@ -1,0 +1,153 @@
+{
+  "build": "he1b5a44_0",
+  "build_number": 0,
+  "channel": "https://conda.anaconda.org/conda-forge/linux-64",
+  "constrains": [],
+  "depends": [
+    "libgcc-ng >=7.3.0",
+    "libstdcxx-ng >=7.3.0"
+  ],
+  "extracted_package_dir": "/iblm/netapp/home/jezhou/anaconda3/pkgs/libxkbcommon-0.10.0-he1b5a44_0",
+  "features": "",
+  "files": [
+    "include/xkbcommon/xkbcommon-compat.h",
+    "include/xkbcommon/xkbcommon-compose.h",
+    "include/xkbcommon/xkbcommon-keysyms.h",
+    "include/xkbcommon/xkbcommon-names.h",
+    "include/xkbcommon/xkbcommon-x11.h",
+    "include/xkbcommon/xkbcommon.h",
+    "lib/libxkbcommon-x11.so",
+    "lib/libxkbcommon-x11.so.0",
+    "lib/libxkbcommon-x11.so.0.0.0",
+    "lib/libxkbcommon.so",
+    "lib/libxkbcommon.so.0",
+    "lib/libxkbcommon.so.0.0.0",
+    "lib/pkgconfig/xkbcommon-x11.pc",
+    "lib/pkgconfig/xkbcommon.pc"
+  ],
+  "fn": "libxkbcommon-0.10.0-he1b5a44_0.tar.bz2",
+  "license": "MIT/X11 Derivative",
+  "license_family": "MIT",
+  "link": {
+    "source": "/iblm/netapp/home/jezhou/anaconda3/pkgs/libxkbcommon-0.10.0-he1b5a44_0",
+    "type": 1
+  },
+  "md5": "78ccac2098edcd3673af2ceb3e95f932",
+  "name": "libxkbcommon",
+  "package_tarball_full_path": "/iblm/netapp/home/jezhou/anaconda3/pkgs/libxkbcommon-0.10.0-he1b5a44_0.tar.bz2",
+  "paths_data": {
+    "paths": [
+      {
+        "_path": "include/xkbcommon/xkbcommon-compat.h",
+        "path_type": "hardlink",
+        "sha256": "0b4daef35b0fdc6713d6f4645b7182c08176c6d9a436b0e11eecdaceb4e83ea2",
+        "sha256_in_prefix": "0b4daef35b0fdc6713d6f4645b7182c08176c6d9a436b0e11eecdaceb4e83ea2",
+        "size_in_bytes": 4295
+      },
+      {
+        "_path": "include/xkbcommon/xkbcommon-compose.h",
+        "path_type": "hardlink",
+        "sha256": "dc89f3bb27d83888c9a6587e84abf9abe51f15b2a89000f8b9c3ed18ce88b97a",
+        "sha256_in_prefix": "dc89f3bb27d83888c9a6587e84abf9abe51f15b2a89000f8b9c3ed18ce88b97a",
+        "size_in_bytes": 16198
+      },
+      {
+        "_path": "include/xkbcommon/xkbcommon-keysyms.h",
+        "path_type": "hardlink",
+        "sha256": "97f8c6d67eb4eca3c9cc47d6adb330950083a8fd8ffb7afb985feff2c900bb6f",
+        "sha256_in_prefix": "97f8c6d67eb4eca3c9cc47d6adb330950083a8fd8ffb7afb985feff2c900bb6f",
+        "size_in_bytes": 212554
+      },
+      {
+        "_path": "include/xkbcommon/xkbcommon-names.h",
+        "path_type": "hardlink",
+        "sha256": "7de3669465312b5b00d0b70490aabfb3557726b8ed152fd21db06df64516a578",
+        "sha256_in_prefix": "7de3669465312b5b00d0b70490aabfb3557726b8ed152fd21db06df64516a578",
+        "size_in_bytes": 1718
+      },
+      {
+        "_path": "include/xkbcommon/xkbcommon-x11.h",
+        "path_type": "hardlink",
+        "sha256": "1359c5050a92a64f4b5ab59797e46dc4b8eb4651066d301577a52959b45a0107",
+        "sha256_in_prefix": "1359c5050a92a64f4b5ab59797e46dc4b8eb4651066d301577a52959b45a0107",
+        "size_in_bytes": 9190
+      },
+      {
+        "_path": "include/xkbcommon/xkbcommon.h",
+        "path_type": "hardlink",
+        "sha256": "ec364166e496e8d14a800b83c233ac72766c8181fa72d703ba7300e94e7fe19a",
+        "sha256_in_prefix": "ec364166e496e8d14a800b83c233ac72766c8181fa72d703ba7300e94e7fe19a",
+        "size_in_bytes": 62834
+      },
+      {
+        "_path": "lib/libxkbcommon-x11.so",
+        "path_type": "softlink",
+        "sha256": "f30f95e6b3868fda95de66794bb10cf6b0d555772a981c6d21fbbb882eaaa0fb",
+        "size_in_bytes": 160696
+      },
+      {
+        "_path": "lib/libxkbcommon-x11.so.0",
+        "path_type": "softlink",
+        "sha256": "f30f95e6b3868fda95de66794bb10cf6b0d555772a981c6d21fbbb882eaaa0fb",
+        "size_in_bytes": 160696
+      },
+      {
+        "_path": "lib/libxkbcommon-x11.so.0.0.0",
+        "file_mode": "binary",
+        "path_type": "hardlink",
+        "prefix_placeholder": "/home/conda/feedstock_root/build_artifacts/libxkbcommon_1581013759283/_h_env_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehol",
+        "sha256": "f30f95e6b3868fda95de66794bb10cf6b0d555772a981c6d21fbbb882eaaa0fb",
+        "sha256_in_prefix": "04cc49a9434a61e959250d7b60eec4c2d18030b3c9e6f5e56e6ed91088b9c601",
+        "size_in_bytes": 160696
+      },
+      {
+        "_path": "lib/libxkbcommon.so",
+        "path_type": "softlink",
+        "sha256": "289b1b9587ecc5f99c5ef9c173c02515864e53fea5287f3ccda1ac1eee1cf393",
+        "size_in_bytes": 1004680
+      },
+      {
+        "_path": "lib/libxkbcommon.so.0",
+        "path_type": "softlink",
+        "sha256": "289b1b9587ecc5f99c5ef9c173c02515864e53fea5287f3ccda1ac1eee1cf393",
+        "size_in_bytes": 1004680
+      },
+      {
+        "_path": "lib/libxkbcommon.so.0.0.0",
+        "file_mode": "binary",
+        "path_type": "hardlink",
+        "prefix_placeholder": "/home/conda/feedstock_root/build_artifacts/libxkbcommon_1581013759283/_h_env_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehol",
+        "sha256": "289b1b9587ecc5f99c5ef9c173c02515864e53fea5287f3ccda1ac1eee1cf393",
+        "sha256_in_prefix": "2c6fd88465734197d1738d0770b53f78e9488a1466a43a1db35a2451475f938c",
+        "size_in_bytes": 1004680
+      },
+      {
+        "_path": "lib/pkgconfig/xkbcommon-x11.pc",
+        "file_mode": "text",
+        "path_type": "hardlink",
+        "prefix_placeholder": "/opt/anaconda1anaconda2anaconda3",
+        "sha256": "e5529b063c8237021d5d9509d2709da4df63d9d52a3f0909f80214b1ced279e3",
+        "sha256_in_prefix": "e3f9ce9ef4b762f364962fbbfcbf7d869ecc150b063f93e1f79426fa0d1227a4",
+        "size_in_bytes": 317
+      },
+      {
+        "_path": "lib/pkgconfig/xkbcommon.pc",
+        "file_mode": "text",
+        "path_type": "hardlink",
+        "prefix_placeholder": "/opt/anaconda1anaconda2anaconda3",
+        "sha256": "54b9119751cd8d9ce1a6ed2a2cdc2a1f6d71ca2802d94a2157a846e63eb0f831",
+        "sha256_in_prefix": "42bb8151dbec320d51773d00081f93e93fe3bf90850a0916c5e0bb7c86a2e7fd",
+        "size_in_bytes": 228
+      }
+    ],
+    "paths_version": 1
+  },
+  "requested_spec": "None",
+  "sha256": "f5097fe331f00383535aeef23d8320ff3e09890b8667c348850e053ffbad4a4a",
+  "size": 485988,
+  "subdir": "linux-64",
+  "timestamp": 1581013907861,
+  "track_features": "",
+  "url": "https://conda.anaconda.org/conda-forge/linux-64/libxkbcommon-0.10.0-he1b5a44_0.tar.bz2",
+  "version": "0.10.0"
+}

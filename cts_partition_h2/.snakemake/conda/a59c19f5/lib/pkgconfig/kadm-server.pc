@@ -1,0 +1,11 @@
+prefix=/iblm/netapp/home/jezhou/rat_snatacseq_analysis/cts_partition_h2/.snakemake/conda/a59c19f5
+exec_prefix=${prefix}
+libdir=${exec_prefix}/lib
+includedir=${prefix}/include
+
+Name: kadm-server
+Description: Kerberos administration server library
+Version: 1.17.2
+Requires.private: kdb mit-krb5-gssapi
+Cflags: -I${includedir}
+Libs: -L${libdir} -lkadm5srv_mit

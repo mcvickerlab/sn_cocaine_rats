@@ -1,0 +1,11 @@
+prefix=/iblm/netapp/home/jezhou/rat_snatacseq_analysis/cts_partition_h2/.snakemake/conda/a59c19f5
+libdir=${prefix}/lib
+includedir=${prefix}/include
+
+Name: xkbcommon-x11
+Description: XKB API common to servers and clients - X11 support
+Version: 0.10.0
+Requires: xkbcommon
+Requires.private: xcb >= 1.10, xcb-xkb >= 1.10
+Libs: -L${libdir} -lxkbcommon-x11
+Cflags: -I${includedir}

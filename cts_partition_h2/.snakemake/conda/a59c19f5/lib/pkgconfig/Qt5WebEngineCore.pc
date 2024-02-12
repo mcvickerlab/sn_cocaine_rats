@@ -1,0 +1,13 @@
+prefix=/iblm/netapp/home/jezhou/rat_snatacseq_analysis/cts_partition_h2/.snakemake/conda/a59c19f5
+exec_prefix=${prefix}
+libdir=${prefix}/lib
+includedir=${prefix}/include/qt
+
+
+Name: Qt5 WebEngineCore
+Description: Qt WebEngineCore module
+Version: 5.12.9
+Libs: -L${libdir} -lQt5WebEngineCore 
+Cflags: -DQT_WEBENGINECORE_LIB -I${includedir}/QtWebEngineCore -I${includedir}
+Requires: Qt5Core Qt5Gui Qt5Qml Qt5Quick Qt5Positioning Qt5WebChannel
+

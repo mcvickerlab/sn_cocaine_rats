@@ -1,0 +1,60 @@
+{
+  "build": "default_hde54327_1",
+  "build_number": 1,
+  "channel": "https://conda.anaconda.org/conda-forge/linux-64",
+  "constrains": [
+    "clang 10.0.1.*",
+    "clang-tools 10.0.1.*",
+    "llvm 10.0.1.*",
+    "llvm-tools 10.0.1.*",
+    "llvmdev 10.0.1.*"
+  ],
+  "depends": [
+    "libgcc-ng >=7.5.0",
+    "libllvm10 >=10.0.1,<10.1.0a0",
+    "libstdcxx-ng >=7.5.0"
+  ],
+  "extracted_package_dir": "/iblm/netapp/home/jezhou/anaconda3/pkgs/libclang-10.0.1-default_hde54327_1",
+  "features": "",
+  "files": [
+    "lib/libclang.so",
+    "lib/libclang.so.10"
+  ],
+  "fn": "libclang-10.0.1-default_hde54327_1.tar.bz2",
+  "license": "Apache-2.0 WITH LLVM-exception",
+  "license_family": "Apache",
+  "link": {
+    "source": "/iblm/netapp/home/jezhou/anaconda3/pkgs/libclang-10.0.1-default_hde54327_1",
+    "type": 1
+  },
+  "md5": "758f1d35d1f8531c80e35b017d76d131",
+  "name": "libclang",
+  "package_tarball_full_path": "/iblm/netapp/home/jezhou/anaconda3/pkgs/libclang-10.0.1-default_hde54327_1.tar.bz2",
+  "paths_data": {
+    "paths": [
+      {
+        "_path": "lib/libclang.so",
+        "path_type": "hardlink",
+        "sha256": "736b9d4f28ac365a33ae37f6bcae92f1cf788ad60cf3a9662ff0d61da5c02287",
+        "sha256_in_prefix": "736b9d4f28ac365a33ae37f6bcae92f1cf788ad60cf3a9662ff0d61da5c02287",
+        "size_in_bytes": 47703280
+      },
+      {
+        "_path": "lib/libclang.so.10",
+        "path_type": "hardlink",
+        "sha256": "736b9d4f28ac365a33ae37f6bcae92f1cf788ad60cf3a9662ff0d61da5c02287",
+        "sha256_in_prefix": "736b9d4f28ac365a33ae37f6bcae92f1cf788ad60cf3a9662ff0d61da5c02287",
+        "size_in_bytes": 47703280
+      }
+    ],
+    "paths_version": 1
+  },
+  "requested_spec": "None",
+  "sha256": "675e7a06ebe189d5ce160d1e8df3ed3bb642660a0b4cce78a747e9b5b7e850ec",
+  "size": 27062745,
+  "subdir": "linux-64",
+  "timestamp": 1596860348983,
+  "track_features": "",
+  "url": "https://conda.anaconda.org/conda-forge/linux-64/libclang-10.0.1-default_hde54327_1.tar.bz2",
+  "version": "10.0.1"
+}

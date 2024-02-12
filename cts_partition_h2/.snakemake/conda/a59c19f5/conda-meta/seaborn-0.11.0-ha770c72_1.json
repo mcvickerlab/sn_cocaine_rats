@@ -1,0 +1,35 @@
+{
+  "build": "ha770c72_1",
+  "build_number": 1,
+  "channel": "https://conda.anaconda.org/conda-forge/linux-64",
+  "constrains": [],
+  "depends": [
+    "seaborn-base >=0.11.0,<0.11.1.0a0",
+    "statsmodels >=0.8.0"
+  ],
+  "extracted_package_dir": "/iblm/netapp/home/jezhou/anaconda3/pkgs/seaborn-0.11.0-ha770c72_1",
+  "features": "",
+  "files": [],
+  "fn": "seaborn-0.11.0-ha770c72_1.tar.bz2",
+  "license": "BSD-3-Clause",
+  "license_family": "BSD",
+  "link": {
+    "source": "/iblm/netapp/home/jezhou/anaconda3/pkgs/seaborn-0.11.0-ha770c72_1",
+    "type": 1
+  },
+  "md5": "4aa0fcb64555b279b8eecae5cb42a5a3",
+  "name": "seaborn",
+  "package_tarball_full_path": "/iblm/netapp/home/jezhou/anaconda3/pkgs/seaborn-0.11.0-ha770c72_1.tar.bz2",
+  "paths_data": {
+    "paths": [],
+    "paths_version": 1
+  },
+  "requested_spec": "seaborn",
+  "sha256": "c7529afbc3d7140ecd3700e6f8e3206a3991aaa6e3ae087f07183489951a5eb0",
+  "size": 4150,
+  "subdir": "linux-64",
+  "timestamp": 1604238860513,
+  "track_features": "",
+  "url": "https://conda.anaconda.org/conda-forge/linux-64/seaborn-0.11.0-ha770c72_1.tar.bz2",
+  "version": "0.11.0"
+}

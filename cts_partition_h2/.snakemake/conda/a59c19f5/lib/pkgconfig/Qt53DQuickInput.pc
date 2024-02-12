@@ -1,0 +1,13 @@
+prefix=/iblm/netapp/home/jezhou/rat_snatacseq_analysis/cts_partition_h2/.snakemake/conda/a59c19f5
+exec_prefix=${prefix}
+libdir=${prefix}/lib
+includedir=${prefix}/include/qt
+
+
+Name: Qt5 3DQuickInput
+Description: Qt 3DQuickInput module
+Version: 5.12.9
+Libs: -L${libdir} -lQt53DQuickInput 
+Cflags: -DQT_3DQUICKINPUT_LIB -I${includedir}/Qt3DQuickInput -I${includedir}
+Requires: Qt5Core Qt5Gui Qt5Qml Qt53DCore Qt53DInput Qt53DQuick
+

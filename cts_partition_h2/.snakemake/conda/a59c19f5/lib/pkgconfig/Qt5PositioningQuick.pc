@@ -1,0 +1,13 @@
+prefix=/iblm/netapp/home/jezhou/rat_snatacseq_analysis/cts_partition_h2/.snakemake/conda/a59c19f5
+exec_prefix=${prefix}
+libdir=${prefix}/lib
+includedir=${prefix}/include/qt
+
+
+Name: Qt5 PositioningQuick
+Description: Qt PositioningQuick module
+Version: 5.12.9
+Libs: -L${libdir} -lQt5PositioningQuick 
+Cflags: -DQT_POSITIONINGQUICK_LIB -I${includedir}/QtPositioningQuick -I${includedir}
+Requires: Qt5Quick Qt5Positioning Qt5Qml Qt5Core
+

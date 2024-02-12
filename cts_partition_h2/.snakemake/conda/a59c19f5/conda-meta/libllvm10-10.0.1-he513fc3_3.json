@@ -1,0 +1,62 @@
+{
+  "build": "he513fc3_3",
+  "build_number": 3,
+  "channel": "https://conda.anaconda.org/conda-forge/linux-64",
+  "constrains": [],
+  "depends": [
+    "libgcc-ng >=7.5.0",
+    "libstdcxx-ng >=7.5.0",
+    "zlib >=1.2.11,<1.3.0a0"
+  ],
+  "extracted_package_dir": "/iblm/netapp/home/jezhou/anaconda3/pkgs/libllvm10-10.0.1-he513fc3_3",
+  "features": "",
+  "files": [
+    "lib/libLLVM-10.so",
+    "lib/libLTO.so.10",
+    "lib/libRemarks.so.10"
+  ],
+  "fn": "libllvm10-10.0.1-he513fc3_3.tar.bz2",
+  "license": "Apache-2.0 WITH LLVM-exception",
+  "license_family": "Apache",
+  "link": {
+    "source": "/iblm/netapp/home/jezhou/anaconda3/pkgs/libllvm10-10.0.1-he513fc3_3",
+    "type": 1
+  },
+  "md5": "b1c57947b2a9231e0cd037ab0ed96b5d",
+  "name": "libllvm10",
+  "package_tarball_full_path": "/iblm/netapp/home/jezhou/anaconda3/pkgs/libllvm10-10.0.1-he513fc3_3.tar.bz2",
+  "paths_data": {
+    "paths": [
+      {
+        "_path": "lib/libLLVM-10.so",
+        "path_type": "hardlink",
+        "sha256": "716d265f266b77dccb01f948bb6620bbb107663bb02b6bda600b522e92c4902e",
+        "sha256_in_prefix": "716d265f266b77dccb01f948bb6620bbb107663bb02b6bda600b522e92c4902e",
+        "size_in_bytes": 95685352
+      },
+      {
+        "_path": "lib/libLTO.so.10",
+        "path_type": "hardlink",
+        "sha256": "349ff98aeb2abdece864a347759fcc3f5f7696a6d25201f3daeb69b142e447ca",
+        "sha256_in_prefix": "349ff98aeb2abdece864a347759fcc3f5f7696a6d25201f3daeb69b142e447ca",
+        "size_in_bytes": 235272
+      },
+      {
+        "_path": "lib/libRemarks.so.10",
+        "path_type": "hardlink",
+        "sha256": "6e437dd9c3474d7e10361232c5816e34d745ede12c88613acd1daa5f4b8461f6",
+        "sha256_in_prefix": "6e437dd9c3474d7e10361232c5816e34d745ede12c88613acd1daa5f4b8461f6",
+        "size_in_bytes": 16016
+      }
+    ],
+    "paths_version": 1
+  },
+  "requested_spec": "None",
+  "sha256": "2a236faeaade01cdb6c52b1892d5768baa7d7ebeaa473996c60231f6806f616a",
+  "size": 27725019,
+  "subdir": "linux-64",
+  "timestamp": 1598579026085,
+  "track_features": "",
+  "url": "https://conda.anaconda.org/conda-forge/linux-64/libllvm10-10.0.1-he513fc3_3.tar.bz2",
+  "version": "10.0.1"
+}

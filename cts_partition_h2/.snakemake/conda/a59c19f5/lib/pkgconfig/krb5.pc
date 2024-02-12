@@ -1,0 +1,14 @@
+prefix=/iblm/netapp/home/jezhou/rat_snatacseq_analysis/cts_partition_h2/.snakemake/conda/a59c19f5
+exec_prefix=${prefix}
+libdir=${exec_prefix}/lib
+includedir=${prefix}/include
+vendor=MIT
+
+defccname=FILE:/tmp/krb5cc_%{uid}
+defktname=FILE:/etc/krb5.keytab
+defcktname=FILE:/opt/conda/var/krb5/user/%{euid}/client.keytab
+
+Name: krb5
+Description: An implementation of Kerberos network authentication
+Version: 1.17.2
+Requires: mit-krb5

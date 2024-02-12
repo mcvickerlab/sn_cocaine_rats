@@ -1,0 +1,10 @@
+prefix=/iblm/netapp/home/jezhou/rat_snatacseq_analysis/cts_partition_h2/.snakemake/conda/a59c19f5
+exec_prefix=${prefix}
+libdir=${exec_prefix}/lib
+includedir=${prefix}/include
+
+Name: libjpeg
+Description: Reads and writes JPEG files
+Version: 9.4.0
+Libs: -L${libdir} -ljpeg
+Cflags: -I${includedir}

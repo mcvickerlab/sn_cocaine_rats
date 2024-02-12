@@ -1,0 +1,12 @@
+prefix=/iblm/netapp/home/jezhou/rat_snatacseq_analysis/cts_partition_h2/.snakemake/conda/a59c19f5
+exec_prefix=${prefix}
+libdir=${exec_prefix}/lib
+includedir=${prefix}/include
+vendor=MIT
+
+Name: gssrpc
+Description: GSSAPI RPC implementation
+Version: 1.17.2
+Cflags: -I${includedir}
+Libs: -L${libdir} -lgssrpc
+Requires.private: mit-krb5-gssapi
