@@ -1,6 +1,6 @@
 # sn_cocaine_rats
 
-This repository contains relevant code/pipelines for work done in our paper ["[Cocaine addiction-like behaviors are associated with long-term changes in gene regulation, energy metabolism, and GABAergic inhibition within the amygdala](https://www.nature.com/articles/s41593-023-01452-y)"].
+This repository contains relevant code/pipelines for work done in our paper ["Single-nucleus genomics in outbred rats with divergent cocaine addiction-like behaviors reveals changes in amygdala GABAergic inhibition"](https://www.nature.com/articles/s41593-023-01452-y).
 
 ## [`rna_analysis`](https://github.com/mcvickerlab/sn_cocaine_rats/tree/master/rna_analysis)
 This directory contains code/pipelines for analysis of snRNA-seq data used in this project. 
